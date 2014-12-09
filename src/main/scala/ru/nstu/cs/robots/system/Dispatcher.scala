@@ -1,28 +1,29 @@
 package ru.nstu.cs.robots.system
 
-import akka.actor.{ActorRef, Props, Actor}
-import ru.nstu.cs.robots.system.Dispatcher.{TransporterReady, Ball}
-import ru.nstu.cs.robots.system.environment.TransportMaps
-import ru.nstu.cs.robots.system.state.{SystemState, Color}
+import akka.actor.{Actor, ActorRef, Props}
+import ru.nstu.cs.robots.system.Dispatcher.{Ball, TransporterReady}
+import ru.nstu.cs.robots.system.environment.TransportMap
+import ru.nstu.cs.robots.system.state.{Color, SystemState}
 import ru.nstu.cs.robots.system.task._
 
 
 object Dispatcher {
 
-  def props(mapId: Int, sorter: Int, transporters: List[Int]): Props = Props(new Dispatcher(mapId, sorter, transporters))
+  def props(map: TransportMap, sorterPort: Int, transportersPortPoint: Map[Int, Int]): Props =
+    Props(new Dispatcher(map, sorterPort, transportersPortPoint))
 
   case class Ball(color: Color)
 
   case class TransporterReady(id: Int)
 }
 
-class Dispatcher(mapId: Int, sorterId: Int, transportersIds: List[Int]) extends Actor {
+class Dispatcher(map: TransportMap, sorterId: Int, transportersIds: Map[Int, Int]) extends Actor {
 
   val sorter = context.actorOf(Sorter.props(sorterId))
   val transporters: Map[Int, ActorRef] =
-    transportersIds.map(id => id -> context.actorOf(Transporter.props(id))).toMap
+    transportersIds.map { case (port, _) => port -> context.actorOf(Transporter.props(port)) }
 
-  val systemState = new SystemState(transportersIds, TransportMaps(mapId))
+  var systemState = new SystemState(transportersIds.keys.toSeq, map)
 
   override def receive: Receive = {
     case Ball(color) =>

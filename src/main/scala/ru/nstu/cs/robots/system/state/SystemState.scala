@@ -44,7 +44,7 @@ class SystemState(transportersIds: Seq[Int], transportMap: TransportMap) {
       val nextQueue = if (queue.isEmpty) Seq() else queue.tail
       (topTask, nextQueue)
     } else {
-      val stay = Stay(taskEndPoint(task), taskEndLookAt(task))
+      val stay = Stay(task.endPoint, task.lookAt)
       (stay, queue)
     }
     changeState(id, nextTask, nextQueue)
@@ -73,7 +73,7 @@ class SystemState(transportersIds: Seq[Int], transportMap: TransportMap) {
       case (result, (id, state)) =>
         sorterState.queue.headOption match {
           case Some(color) =>
-            val queue = createTaskQueue(color, taskEndPoint(state.currentTask))
+            val queue = createTaskQueue(color, state.currentTask.endPoint)
             val firstTask = queue.head
             changeState(id, firstTask, queue.tail)
 
@@ -111,7 +111,7 @@ class SystemState(transportersIds: Seq[Int], transportMap: TransportMap) {
     transportersState.values
       .find {
         case state =>
-          taskEndPoint(state.queue.last) == parkingPort
+          state.queue.last.endPoint == parkingPort
       }
       .isEmpty
   }
@@ -120,7 +120,7 @@ class SystemState(transportersIds: Seq[Int], transportMap: TransportMap) {
     val state = transportersState(id)
     val task = state.currentTask
 
-    val stayTask = Stay(taskEndPoint(task), taskEndLookAt(task))
+    val stayTask = Stay(task.endPoint, task.lookAt)
     changeState(id, stayTask, state.queue)
   }
 
@@ -128,33 +128,17 @@ class SystemState(transportersIds: Seq[Int], transportMap: TransportMap) {
     transportersState = transportersState + (id -> TransporterState(task, queue))
   }
 
-  private def taskEndPoint(task: TransporterTask): Int = {
-    task match {
-      case Stay(in, _) => in
-      case Move(_, to) => to
-      case Drop(in, _) => in
-    }
-  }
-
-  private def taskEndLookAt(task: TransporterTask): Direction = {
-    task match {
-      case Stay(_, lookAt) => lookAt
-      case Move(from, to) => transportMap.crossroads(from).links.find(_.to == to).get.direction
-      case Drop(_, lookAt) => lookAt
-    }
-  }
-
   private def canDo(id: Int, task: TransporterTask): Boolean = {
-    val taskEnd = taskEndPoint(task)
+    val taskEnd = task.endPoint
     transportersState
       .filterNot { case (transporterId, _) => transporterId == id }
       .find {
         case (_, state) =>
           def willSoonBeOccupied(point: Int, tasks: Seq[TransporterTask]): Boolean = {
-            tasks.indexWhere(taskEndPoint(_) == point) <= 2
+            tasks.indexWhere(_.endPoint == point) <= 2
           }
 
-          taskEndPoint(state.currentTask) == taskEnd || willSoonBeOccupied(taskEnd, state.queue)
+          state.currentTask.endPoint == taskEnd || willSoonBeOccupied(taskEnd, state.queue)
       }
       .isEmpty
   }
