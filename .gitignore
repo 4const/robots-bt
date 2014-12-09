@@ -1,0 +1,9 @@
+*.ipr
+*.iml
+.idea/
+
+# Logs and databases #
+*.log
+*.sql
+*.sqlite
+target/
