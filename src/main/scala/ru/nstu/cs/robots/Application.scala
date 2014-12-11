@@ -26,7 +26,7 @@ object Application extends App {
       // baundRate, numberOfDataBits, numberOfStopBits, parity
       serialPort.setParams(9600, 8, 1, 0)
       // request nxt version
-      val message = Array[Byte](0x00, 0x09, 0x00, 0x05, 0x02, 0x00, 0x00, 0x00)
+      val message = Array[Byte](0x00, 0x09, 0x00, 0x05, 0x03, 0x00, 0x00, 0x00)
       val messageLength = Array[Byte](message.length.toByte, 0x00)
 
       serialPort.writeBytes(messageLength)
@@ -41,3 +41,4 @@ object Application extends App {
     }
   }
 }
+     // 11-blue 12-red 13-green
