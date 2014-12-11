@@ -1,7 +1,7 @@
 package ru.nstu.cs.robots.system
 
 import akka.actor.{Props, Actor}
-import ru.nstu.cs.robots.bluetooth.BtConnectorImpl
+import ru.nstu.cs.robots.bluetooth.BtConnector
 import ru.nstu.cs.robots.system.Sorter._
 import ru.nstu.cs.robots.system.Dispatcher._
 import ru.nstu.cs.robots.system.state._
@@ -18,13 +18,13 @@ object Sorter {
 
 class Sorter(id: Int) extends Actor {
 
-  val btConnector = new BtConnectorImpl(id)
+  val btConnector = new BtConnector(id)
 
   override def receive: Receive = {
     case Ask =>
-      val state = btConnector.readState()
+      val state = btConnector.read()
       if (state != 0) {
-        context.parent ! Ball(color(state))
+        context.parent ! Ball(color(state(0)))
       }
   }
 

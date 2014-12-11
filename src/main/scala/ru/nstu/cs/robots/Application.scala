@@ -26,13 +26,13 @@ object Application extends App {
       // baundRate, numberOfDataBits, numberOfStopBits, parity
       serialPort.setParams(9600, 8, 1, 0)
       // request nxt version
-      val message = Array[Byte](0x00, 0x09, 0x00, 0x05, 0x01, 0x00, 0x00, 0x00)
+      val message = Array[Byte](0x00, 0x09, 0x00, 0x05, 0x02, 0x00, 0x00, 0x00)
       val messageLength = Array[Byte](message.length.toByte, 0x00)
 
       serialPort.writeBytes(messageLength)
       serialPort.writeBytes(message)
 
-      val response = serialPort.readBytes(10, 5000)
+      val response = serialPort.readBytes(15, 5000)
       // close port
       val value = ByteBuffer.wrap(response.slice(4, 6).reverse)
       serialPort.closePort()

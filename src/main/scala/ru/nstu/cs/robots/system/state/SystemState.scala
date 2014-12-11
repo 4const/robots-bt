@@ -97,7 +97,11 @@ class SystemState(transportersIds: Seq[Int], transportMap: TransportMap) {
     def makeQueue(points: Seq[Point]): Seq[TransporterTask] = {
       points
         .zip(points.tail)
-        .map { case (from, to) => Move(from.id, from.id) }
+        .map {
+          case (from, to) =>
+            val direction = transportMap.crossroads(from.id).links.find(_.to == to.id).get.direction
+            Move(from.id, to.id, direction)
+        }
     }
 
     makeQueue(toSorterPoints)
