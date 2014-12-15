@@ -1,20 +1,25 @@
 package ru.nstu.cs.robots.system.state
 
-import ru.nstu.cs.robots.map.{Point, RoadMap, Direction}
+import ru.nstu.cs.robots.map.{Point, RoadMap}
 import ru.nstu.cs.robots.system.environment.{SorterParameters, TransportMap}
 import ru.nstu.cs.robots.system.task.{Drop, Move, TransporterTask, Stay}
 
 class SystemState(transportersIds: Seq[Int], transportMap: TransportMap) {
 
-  var sorterState = SorterState(Seq())
+  var sorterState = SorterState()
   var transportersState: Map[Int, TransporterState] =
     transportersIds.map(_ ->
       TransporterState(Stay(transportMap.parkingPorts.head.point, transportMap.parkingPorts.head.direction), Seq())).toMap
 
+  var lastColor: Color = NoColor
+
   val roadMap = new RoadMap(transportMap.crossroads)
 
-  def addBall(color: Color): Map[Int, TransporterTask] = {
-    sorterState.copy(sorterState.queue :+ color)
+  def addBalls(balls: Map[Color, Int]): Map[Int, TransporterTask] = {
+    sorterState.copy(sorterState.queues.map {
+      case (c, count) =>
+        c -> (count + balls(c))
+    })
 
     nextTasks()
   }
@@ -53,35 +58,34 @@ class SystemState(transportersIds: Seq[Int], transportMap: TransportMap) {
   }
 
   private def assignGlobalTask(freeTransporters: Map[Int, TransporterState]): Map[Int, TransporterTask] = {
-    def refreshState(color: Color, state: SorterState): SorterState = {
+    def refreshState(color: Color, sorterState: SorterState): SorterState = {
       SorterState(
-        state.queue.foldLeft((0, Seq[Color]())) {
-          case ((count, r), c) =>
-            if (c == color) {
-              if (count <= SorterParameters.MAX_PACKAGE) {
-                (count + 1, r)
-              } else {
-                (count, r :+ c)
-              }
+        sorterState.queues.map { case (c, count) =>
+          if (c == color) {
+            val res = count - SorterParameters.MAX_PACKAGE
+            if (res > 0) {
+              c -> res
             } else {
-              (count, r :+ c)
+              c -> 0
             }
-        }._2)
+          } else {
+            c -> count
+          }
+        })
     }
 
     freeTransporters.foldLeft(Map[Int, TransporterTask]()) {
       case (result, (id, state)) =>
-        sorterState.queue.headOption match {
-          case Some(color) =>
+        sorterState.queues
+          .find { case (color, count) => (color != lastColor) && count != 0 }
+          .map { case (color, count) =>
             val queue = createTaskQueue(color, state.currentTask.endPoint)
             val firstTask = queue.head
             changeState(id, firstTask, queue.tail)
-
             sorterState = refreshState(color, sorterState)
-
             result + (id -> firstTask)
-          case _ => result
-        }
+          }
+          .getOrElse(result)
     }
   }
 

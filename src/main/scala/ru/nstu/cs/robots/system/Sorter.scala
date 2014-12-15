@@ -25,9 +25,9 @@ class Sorter(id: Int) extends Actor {
   override def receive: Receive = {
     case Ask =>
       btConnector.send(askMessage)
-      val state = btConnector.read()
-      if (state != 0) {
-        context.parent ! Ball(color(state(0)))
+      val balls = mapBalls(btConnector.read())
+      if (balls.exists(_._2 != 0)) {
+        context.parent ! Balls(balls)
       }
   }
 
@@ -35,6 +35,10 @@ class Sorter(id: Int) extends Actor {
 
   private def scheduleAsk(delay: FiniteDuration = 1.seconds): Unit = {
     context.system.scheduler.scheduleOnce(delay, self, Ask)
+  }
+
+  private def mapBalls(bytes: Array[Byte]): Map[Color, Int] = {
+    Map(Red -> bytes(12).toInt, Green -> bytes(13).toInt, Blue -> bytes(11))
   }
 
   private def color(state: Int): Color = {

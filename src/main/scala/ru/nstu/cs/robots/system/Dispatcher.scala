@@ -1,7 +1,7 @@
 package ru.nstu.cs.robots.system
 
 import akka.actor.{Actor, ActorRef, Props}
-import ru.nstu.cs.robots.system.Dispatcher.{Ball, TransporterReady}
+import ru.nstu.cs.robots.system.Dispatcher.{Balls, Ball, TransporterReady}
 import ru.nstu.cs.robots.system.environment.TransportMap
 import ru.nstu.cs.robots.system.state.{Color, SystemState}
 import ru.nstu.cs.robots.system.task._
@@ -12,7 +12,7 @@ object Dispatcher {
   def props(map: TransportMap, sorterPort: Int, transportersPortPoint: Map[Int, Int]): Props =
     Props(new Dispatcher(map, sorterPort, transportersPortPoint))
 
-  case class Ball(color: Color)
+  case class Balls(balls: Map[Color, Int])
 
   case class TransporterReady(id: Int)
 }
@@ -26,8 +26,8 @@ class Dispatcher(map: TransportMap, sorterId: Int, transportersIds: Map[Int, Int
   var systemState = new SystemState(transportersIds.keys.toSeq, map)
 
   override def receive: Receive = {
-    case Ball(color) =>
-      dispatchNextTasks(systemState.addBall(color))
+    case Balls(balls) =>
+      dispatchNextTasks(systemState.addBalls(balls))
 
     case TransporterReady(id) =>
       dispatchNextTasks(systemState.transporterReady(id))
