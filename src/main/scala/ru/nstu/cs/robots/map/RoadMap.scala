@@ -7,6 +7,17 @@ class RoadMap(crossroads: Map[Int, Point]) {
       Seq(SearchPoint(crossroads(source), Seq())), Seq(), destination)
   }
 
+  def getRelativeDirection(source: Int, destination: Int, bindingPoint: Int): Direction = {
+    if (source == bindingPoint || destination == bindingPoint || source == destination) {
+      return NoDirection 
+    }
+    val point = crossroads(bindingPoint)
+    val sourceDirection = point.links.find(_.to == source).map(_.direction).getOrElse(NoDirection)
+    val destinationDirection = point.links.find(_.to == destination).map(_.direction).getOrElse(NoDirection)
+    
+    Direction.revertDirection(sourceDirection.relativeDirection(destinationDirection))
+  }
+
   private def findLocalWay(queue: Seq[SearchPoint], visited: Seq[Point], destination: Int): Seq[Point] = {
     if (queue.isEmpty) {
       return Seq()

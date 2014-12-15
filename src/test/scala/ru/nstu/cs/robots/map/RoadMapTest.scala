@@ -31,6 +31,6 @@ class RoadMapTest {
 
     val result = roadMap.getWay(4, 12)
 
-    Assert.assertEquals(Seq(4, 3, 1, 13, 11, 12), result.map(_.id))
+    Assert.assertEquals(Seq(4, 3, 1, 15, 13, 11, 12), result.map(_.id))
   }
 }

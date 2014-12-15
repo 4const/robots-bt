@@ -43,7 +43,7 @@ object TransportMaps {
       1 -> Point(1, Seq(
         Link(1, 2, Top),
         Link(1, 3, Right, open = false),
-        Link(1, 13, Left))),
+        Link(1, 15, Left))),
 
       2 -> Point(2, Seq(Link(2 , 1, Bottom))),
 
@@ -85,14 +85,14 @@ object TransportMaps {
       13 -> Point(13, Seq(
         Link(13, 11, Right),
         Link(13, 14, Bottom),
-        Link(13, 1, Left, open = false))),
+        Link(13, 15, Left, open = false))),
 
       14 -> Point(14, Seq(Link(14, 13, Top))),
 
       15 -> Point(15, Seq(
-        Link(15, 1, Top),
+        Link(15, 1, Top, open = false),
         Link(15, 16, Right),
-        Link(15, 13, Bottom, open = false))),
+        Link(15, 13, Bottom))),
 
       16 -> Point(16, Seq(Link(16, 15, Left)))
     )
