@@ -80,12 +80,7 @@ class SystemState(
       SorterState(
         sorterState.queues.map { case (c, count) =>
           if (c == color) {
-            val res = count - SorterParameters.MAX_PACKAGE
-            if (res > 0) {
-              c -> res
-            } else {
-              c -> 0
-            }
+            c -> Math.max(count - SorterParameters.MAX_PACKAGE, 0)
           } else {
             c -> count
           }

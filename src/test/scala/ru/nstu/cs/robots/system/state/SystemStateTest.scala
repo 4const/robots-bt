@@ -51,7 +51,7 @@ class SystemStateTest {
     val id2 = 2
 
     val map = TransportMaps(1)
-    val sorterState = SorterState(Map(Red -> 2, Green -> 0, Blue -> 0))
+    val sorterState = SorterState(Map(Red -> 3, Green -> 1, Blue -> 0))
 
     val transporters = Map(
       id1 -> TransporterState(Stay(8, Right), Seq.empty),
