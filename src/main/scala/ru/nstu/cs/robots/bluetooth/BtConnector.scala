@@ -5,6 +5,7 @@ import jssc.SerialPort
 class BtConnector(port: Int) {
 
   val metaLength = 3
+  val metaByte: Byte = -128
 
   private val serial = new SerialPort("COM" + port)
   serial.openPort()
@@ -15,9 +16,11 @@ class BtConnector(port: Int) {
   }
 
   def read(length: Int): Array[Byte] = {
-    while (serial.readBytes(1)(0) != -128) {}
+    while (serial.readBytes(1)(0) != metaByte) {}
 
     val bytes = serial.readBytes(metaLength + length, 10000)
+    serial.purgePort(0xFF)
+
     bytes.slice(metaLength, bytes.length)
   }
 

@@ -74,19 +74,29 @@ class SystemState(transportersIds: Seq[Int], transportMap: TransportMap) {
         })
     }
 
+    def makeTask(color: Color, count: Int)(id: Int, state: TransporterState)(result: Map[Int, TransporterTask]): Map[Int, TransporterTask] = {
+      val queue = createTaskQueue(color, state.currentTask.endPoint)
+      val firstTask = queue.head
+      changeState(id, firstTask, queue.tail)
+
+      lastColor = color
+      sorterState = refreshState(color, sorterState)
+
+      result + (id -> firstTask)
+    }
+
     freeTransporters.foldLeft(Map[Int, TransporterTask]()) {
       case (result, (id, state)) =>
         sorterState.queues
           .find { case (color, count) => (color != lastColor) && count != 0 }
-          .map { case (color, count) =>
-            val queue = createTaskQueue(color, state.currentTask.endPoint)
-            val firstTask = queue.head
-            changeState(id, firstTask, queue.tail)
-
-            lastColor = color
-            sorterState = refreshState(color, sorterState)
-
-            result + (id -> firstTask)
+          .map { case (color, count) => makeTask(color, count)(id, state)(result) }
+          .orElse {
+            val count = sorterState.queues(lastColor)
+            if (count != 0) {
+              Some(makeTask(lastColor, count)(id, state)(result))
+            } else {
+              None
+            }
           }
           .getOrElse(result)
     }
