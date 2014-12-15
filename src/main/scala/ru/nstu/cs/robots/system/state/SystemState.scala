@@ -3,15 +3,23 @@ package ru.nstu.cs.robots.system.state
 import ru.nstu.cs.robots.map.{Point, RoadMap}
 import ru.nstu.cs.robots.system.environment.{SorterParameters, TransportMap}
 import ru.nstu.cs.robots.system.task.{Drop, Move, TransporterTask, Stay}
+import SystemState._
 
-class SystemState(transportersIds: Seq[Int], transportMap: TransportMap) {
+object SystemState {
 
-  var sorterState = SorterState()
-  var transportersState: Map[Int, TransporterState] =
-    transportersIds.map(_ ->
-      TransporterState(Stay(transportMap.parkingPorts.head.point, transportMap.parkingPorts.head.direction), Seq())).toMap
+  def initStates(transportersIds: Seq[Int], transportMap: TransportMap) = transportersIds.map(_ ->
+    TransporterState(Stay(transportMap.parkingPorts.head.point, transportMap.parkingPorts.head.direction), Seq())).toMap
+}
 
-  var lastColor: Color = NoColor
+class SystemState(
+  private var sorterState: SorterState,
+  private var transportersState: Map[Int, TransporterState],
+  private var lastColor: Color,
+  private val transportMap: TransportMap) {
+
+  def this(transportersIds: Seq[Int], transportMap: TransportMap) = {
+    this(SorterState(), initStates(transportersIds, transportMap), NoColor, transportMap)
+  }
 
   val roadMap = new RoadMap(transportMap.crossroads)
 
