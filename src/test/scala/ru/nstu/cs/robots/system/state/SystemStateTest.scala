@@ -44,4 +44,24 @@ class SystemStateTest {
 
     assertEquals(Move(2, 1, Bottom), tasks(id1))
   }
+
+  @Test
+  def testOneTaskForTwoRedBalls(): Unit = {
+    val id1 = 1
+    val id2 = 2
+
+    val map = TransportMaps(1)
+    val sorterState = SorterState(Map(Red -> 2, Green -> 0, Blue -> 0))
+
+    val transporters = Map(
+      id1 -> TransporterState(Stay(8, Right), Seq.empty),
+      id2 -> TransporterState(Stay(16, Left), Seq.empty))
+
+    val system = new SystemState(sorterState, transporters, NoColor, map)
+
+    val tasks = system.transporterReady(id2)
+
+    assertEquals(1, tasks.size)
+    assertEquals(Move(8, 7, Right), tasks(id1))
+  }
 }

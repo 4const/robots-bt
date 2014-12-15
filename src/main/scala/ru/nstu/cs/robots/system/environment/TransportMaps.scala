@@ -25,7 +25,9 @@ object TransportMaps {
 
   private object First extends TransportMap {
 
-    def parkingPorts = Seq(Port(8, Right))
+    def parkingPorts = Seq(
+      Port(8, Right),
+      Port(16, Left))
 
     def sorterPorts = Map(
       Red -> Port(2, Top),

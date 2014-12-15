@@ -149,7 +149,9 @@ class SystemState(
   private def isParkingFree(transporterId: Int, parkingPort: Int): Boolean = {
     transportersState
       .find { case (id, state) =>
-        id != transporterId && state.queue.last.endPoint == parkingPort }
+        id != transporterId &&
+          state.queue.lastOption.map(_.endPoint == parkingPort)
+            .getOrElse(state.currentTask.endPoint == parkingPort) }
       .isEmpty
   }
 
