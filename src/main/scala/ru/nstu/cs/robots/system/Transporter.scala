@@ -25,7 +25,7 @@ class Transporter(id: Int) extends Actor {
     case Do => ???
 
     case Ask =>
-      val state = btConnector.read()
+      val state = btConnector.read(1)
       if (state == 0) {
         context.parent ! TransporterReady(id)
       }

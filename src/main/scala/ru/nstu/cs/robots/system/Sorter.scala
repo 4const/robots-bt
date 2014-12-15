@@ -16,6 +16,7 @@ object Sorter {
   case object Ask
 
   val askMessage = new Message(Array[Byte](0x00, 0x09, 0x00, 0x05, 0x03, 0x00, 0x00, 0x00))
+  val answerLength = 3
 }
 
 class Sorter(id: Int) extends Actor {
@@ -25,27 +26,20 @@ class Sorter(id: Int) extends Actor {
   override def receive: Receive = {
     case Ask =>
       btConnector.send(askMessage)
-      val balls = mapBalls(btConnector.read())
+      val balls = mapBalls(btConnector.read(answerLength))
       if (balls.exists(_._2 != 0)) {
         context.parent ! Balls(balls)
       }
+      scheduleAsk(5 seconds)
   }
 
-  scheduleAsk(10 seconds)
+  scheduleAsk(5 seconds)
 
   private def scheduleAsk(delay: FiniteDuration = 1.seconds): Unit = {
     context.system.scheduler.scheduleOnce(delay, self, Ask)
   }
 
   private def mapBalls(bytes: Array[Byte]): Map[Color, Int] = {
-    Map(Red -> bytes(12).toInt, Green -> bytes(13).toInt, Blue -> bytes(11))
-  }
-
-  private def color(state: Int): Color = {
-    state match {
-      case 1 => Red
-      case 2 => Green
-      case 3 => Blue
-    }
+    Map(Red -> bytes(1).toInt, Green -> bytes(2).toInt, Blue -> bytes(0))
   }
 }

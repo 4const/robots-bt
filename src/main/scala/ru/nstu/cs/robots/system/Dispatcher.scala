@@ -1,7 +1,7 @@
 package ru.nstu.cs.robots.system
 
 import akka.actor.{Actor, ActorRef, Props}
-import ru.nstu.cs.robots.system.Dispatcher.{Balls, Ball, TransporterReady}
+import ru.nstu.cs.robots.system.Dispatcher.{Balls, TransporterReady}
 import ru.nstu.cs.robots.system.environment.TransportMap
 import ru.nstu.cs.robots.system.state.{Color, SystemState}
 import ru.nstu.cs.robots.system.task._

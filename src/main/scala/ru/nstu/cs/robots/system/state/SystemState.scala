@@ -82,7 +82,10 @@ class SystemState(transportersIds: Seq[Int], transportMap: TransportMap) {
             val queue = createTaskQueue(color, state.currentTask.endPoint)
             val firstTask = queue.head
             changeState(id, firstTask, queue.tail)
+
+            lastColor = color
             sorterState = refreshState(color, sorterState)
+
             result + (id -> firstTask)
           }
           .getOrElse(result)
