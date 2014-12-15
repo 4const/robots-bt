@@ -40,13 +40,19 @@ class SystemState(
   }
 
   private def nextTasks(): Map[Int, TransporterTask] = {
-    val (awaiting, free) = transportersState.partition { case (_, state) => isAwaiting(state) }
+    def inProgress(state: TransporterState): Boolean = {
+      !state.currentTask.isInstanceOf[Stay] && state.queue.nonEmpty
+    }
+
+    def isAwaiting(state: TransporterState): Boolean = {
+      state.currentTask.isInstanceOf[Stay] && state.queue.nonEmpty
+    }
+
+    val (awaiting, free) = transportersState
+      .filterNot { case (_, state) => inProgress(state) }
+      .partition { case (_, state) => isAwaiting(state) }
     awaiting.map { case (id, state) => nextTransporterTask(id, state) } ++
     assignGlobalTask(free)
-  }
-
-  private def isAwaiting(state: TransporterState): Boolean = {
-    state.currentTask.isInstanceOf[Stay] && state.queue.nonEmpty
   }
 
   private def nextTransporterTask(transporterId: Int, state: TransporterState): (Int, TransporterTask) = {
