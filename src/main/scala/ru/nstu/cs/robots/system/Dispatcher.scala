@@ -38,13 +38,3 @@ class Dispatcher(map: TransportMap, sorterId: Int, transportersIds: Map[Int, Int
     tasks.foreach { case (id, task) => transporters(id) ! task }
   }
 }
-
-// 5 - forward
-// 6 - right
-// 7 - backward
-// 8 - left
-
-// 2 - stay
-// 3 - drop
-
-// 9 - isComplete
