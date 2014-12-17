@@ -19,7 +19,6 @@ class BtConnector(port: Int) {
     while (serial.readBytes(1)(0) != metaByte) {}
 
     val bytes = serial.readBytes(metaLength + length, 10000)
-    serial.purgePort(0xFF)
 
     bytes.slice(metaLength, bytes.length)
   }

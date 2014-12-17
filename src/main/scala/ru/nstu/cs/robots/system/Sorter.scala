@@ -9,6 +9,8 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 import scala.concurrent.duration._
 
+import akka.event.Logging
+
 object Sorter {
 
   def props(id: Int): Props = Props(new Sorter(id))
@@ -21,19 +23,24 @@ object Sorter {
 
 class Sorter(id: Int) extends Actor {
 
+  val log = Logging(context.system, this)
+
   val btConnector = new BtConnector(id)
 
   override def receive: Receive = {
     case Ask =>
+      log.info("Read sorter state")
       btConnector.send(askMessage)
       val balls = mapAnswer(btConnector.read(answerLength))
+
+      log.info("Sorter has {}", balls)
       if (balls.exists(_._2 != 0)) {
         context.parent ! Balls(balls)
       }
-      scheduleAsk(5 seconds)
+      scheduleAsk(15 seconds)
   }
 
-  scheduleAsk(5 seconds)
+  scheduleAsk(10 seconds)
 
   private def scheduleAsk(delay: FiniteDuration = 1.seconds): Unit = {
     context.system.scheduler.scheduleOnce(delay, self, Ask)

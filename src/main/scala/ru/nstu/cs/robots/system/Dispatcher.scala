@@ -2,6 +2,7 @@ package ru.nstu.cs.robots.system
 
 import akka.actor.{Actor, ActorRef, Props}
 import ru.nstu.cs.robots.system.Dispatcher.{Balls, TransporterReady}
+import ru.nstu.cs.robots.system.Transporter.Do
 import ru.nstu.cs.robots.system.environment.TransportMap
 import ru.nstu.cs.robots.system.state.{Color, SystemState}
 import ru.nstu.cs.robots.system.task._
@@ -21,7 +22,9 @@ class Dispatcher(map: TransportMap, sorterId: Int, transportersIds: Map[Int, Int
 
   val sorter = context.actorOf(Sorter.props(sorterId))
   val transporters: Map[Int, ActorRef] =
-    transportersIds.map { case (port, _) => port -> context.actorOf(Transporter.props(port)) }
+    transportersIds.map { case (port, parking) =>
+      port -> context.actorOf(Transporter.props(port, map.parkingPorts(parking)))
+    }
 
   var systemState = new SystemState(transportersIds.keys.toSeq, map)
 
@@ -35,6 +38,6 @@ class Dispatcher(map: TransportMap, sorterId: Int, transportersIds: Map[Int, Int
 
 
   private def dispatchNextTasks(tasks: Map[Int, TransporterTask]): Unit = {
-    tasks.foreach { case (id, task) => transporters(id) ! task }
+    tasks.foreach { case (id, task) => transporters(id) ! Do(task) }
   }
 }

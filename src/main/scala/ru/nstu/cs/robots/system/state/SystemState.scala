@@ -25,7 +25,7 @@ class SystemState(
   val roadMap = new RoadMap(transportMap.crossroads)
 
   def addBalls(balls: Map[Color, Int]): Map[Int, TransporterTask] = {
-    sorterState.copy(sorterState.queues.map {
+    sorterState = sorterState.copy(sorterState.queues.map {
       case (c, count) =>
         c -> (count + balls(c))
     })
@@ -104,11 +104,15 @@ class SystemState(
           .find { case (color, count) => (color != lastColor) && count != 0 }
           .map { case (color, count) => makeTask(color, count)(transporterId, state)(result) }
           .orElse {
-            val count = sorterState.queues(lastColor)
-            if (count != 0) {
-              Some(makeTask(lastColor, count)(transporterId, state)(result))
-            } else {
-              None
+            lastColor match {
+              case NoColor => None
+              case _ =>
+                val count = sorterState.queues(lastColor)
+                if (count != 0) {
+                  Some(makeTask(lastColor, count)(transporterId, state)(result))
+                } else {
+                  None
+                }
             }
           }
           .getOrElse(result)

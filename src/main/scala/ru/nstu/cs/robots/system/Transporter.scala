@@ -1,6 +1,7 @@
 package ru.nstu.cs.robots.system
 
 import akka.actor.{Actor, Props}
+import akka.event.Logging
 import ru.nstu.cs.robots.bluetooth.{Message, BtConnector}
 import ru.nstu.cs.robots.map._
 import ru.nstu.cs.robots.system.Dispatcher.TransporterReady
@@ -27,6 +28,8 @@ object Transporter {
 
 class Transporter(id: Int, start: Port) extends Actor {
 
+  val log = Logging(context.system, this)
+
   val btConnector = new BtConnector(id)
 
   var current: TransporterTask = Stay(start.point, start.direction)
@@ -37,10 +40,17 @@ class Transporter(id: Int, start: Port) extends Actor {
       current = task
 
     case Ask =>
+      log.info("Read Transporter {} state", id)
+      btConnector.send(askMessage)
+
       val isComplete = mapAnswer(btConnector.read(1))
+      log.info("Transporter {} ready? - {}", id, isComplete)
+
       if (isComplete) {
         context.parent ! TransporterReady(id)
       }
+
+      scheduleAsk(10 seconds)
   }
 
   scheduleAsk(10 seconds)
@@ -56,7 +66,10 @@ class Transporter(id: Int, start: Port) extends Actor {
       case Drop(_, _) => 3
       case Stay(_, _) => 2
       case Move(_, _, lookAt) =>
-        current.lookAt.relativeDirection(lookAt) match {
+        val relative = current.lookAt.relativeDirection(lookAt)
+        log.info("make Transporter {} do {} - relative: {}", id, task, relative)
+
+        relative match {
           case Top => 5
           case Right => 6
           case Bottom => 7
