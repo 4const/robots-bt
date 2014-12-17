@@ -80,13 +80,3 @@ class Transporter(id: Int, start: Port) extends Actor {
     taskMessage(keyByte)
   }
 }
-
-// 5 - forward
-// 6 - right
-// 7 - backward
-// 8 - left
-
-// 2 - stay
-// 3 - drop
-
-// 9 - isComplete
