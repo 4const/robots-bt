@@ -1,4 +1,4 @@
-#define P 1.3
+ï»¿#define P 1.3
 #define I 0.001
 #define D 20
 #define POWERMID 50
@@ -126,9 +126,9 @@ void init(){
 task LeftHand(){
   Line();
   while(true){
-    if(SensorUS(USLEFT)<USDISTANCE){//åñòü ïðåïÿòñòâèå ñëåâà
+    if(SensorUS(USLEFT)<USDISTANCE){//ÐµÑÑ‚ÑŒ Ð¿Ñ€ÐµÐ¿ÑÑ‚ÑÑ‚Ð²Ð¸Ðµ ÑÐ»ÐµÐ²Ð°
       Right();
-    }else{//íåò ïðåïÿòñòâèÿ ñëåâà
+    }else{//Ð½ÐµÑ‚ Ð¿Ñ€ÐµÐ¿ÑÑ‚ÑÑ‚Ð²Ð¸Ñ ÑÐ»ÐµÐ²Ð°
       Left();
       Line();
     }
@@ -138,9 +138,9 @@ task LeftHand(){
 task RightHand(){
   Line();
   while(true){
-    if(SensorUS(USRIGHT)<USDISTANCE){//åñòü ïðåïÿòñòâèå ñïðàâà
+    if(SensorUS(USRIGHT)<USDISTANCE){//ÐµÑÑ‚ÑŒ Ð¿Ñ€ÐµÐ¿ÑÑ‚ÑÑ‚Ð²Ð¸Ðµ ÑÐ¿Ñ€Ð°Ð²Ð°
       Left();
-    }else{//íåò ïðåïÿòñòâèÿ ñïðàâà
+    }else{//Ð½ÐµÑ‚ Ð¿Ñ€ÐµÐ¿ÑÑ‚ÑÑ‚Ð²Ð¸Ñ ÑÐ¿Ñ€Ð°Ð²Ð°
       Right();
       Line();
     }
