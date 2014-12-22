@@ -93,7 +93,7 @@ void Line(){
   Off(MOTORS);
   PlayTone(500,100);
   
-  RotateMotor(MOTORS,POWERMID,60);//move slight forward to skip black cross
+  RotateMotor(MOTORS,POWERMID,50);//move slight forward to skip black cross
   
   Acquire(sync);
   isCompleted = true;
@@ -122,7 +122,7 @@ void Right(){
   Release(sync);
   
   RotateMotorEx(MOTORS, POWERMID, 190, LEFT, true, true);//turn right
-  //Stabilize();
+  Stabilize();
   PlayTone(600,100);
 }
 
@@ -132,7 +132,7 @@ void Left(){
   Release(sync);
   
   RotateMotorEx(MOTORS, POWERMID, 190, RIGHT, true, true);//turn left
-  //Stabilize();
+  Stabilize();
   PlayTone(700,100);
 }
 
@@ -143,7 +143,7 @@ void Back(){
   
   long time = CurrentTick();
   OnRev(MOTORS,powerLeft);
-  while(CurrentTick()-time<500) { }
+  while(CurrentTick()-time<1500) { }
   Off(MOTORS);
 
   RotateMotorEx(MOTORS, POWERMID, 185, LEFT, true, true);//turn left

@@ -1,15 +1,17 @@
 package ru.nstu.cs.robots.system.state
 
 import ru.nstu.cs.robots.map.{Point, RoadMap}
-import ru.nstu.cs.robots.system.environment.{SorterParameters, TransportMap}
+import ru.nstu.cs.robots.system.environment.{Port, SorterParameters, TransportMap}
 import ru.nstu.cs.robots.system.task._
 import ru.nstu.cs.robots.map._
 import SystemState._
 
 object SystemState {
 
-  def initStates(transportersIds: Seq[Int], transportMap: TransportMap) = transportersIds.map(_ ->
-    TransporterState(QStay(transportMap.parkingPorts.head.point, transportMap.parkingPorts.head.direction), Seq())).toMap
+  def initStates(transporters: Map[Int, Port], transportMap: TransportMap) = transporters.mapValues {
+    case port =>
+      TransporterState(QStay(port.point, port.direction), Seq())
+  }
 }
 
 class SystemState(
@@ -18,8 +20,8 @@ class SystemState(
   private var lastColor: Color,
   private val transportMap: TransportMap) {
 
-  def this(transportersIds: Seq[Int], transportMap: TransportMap) = {
-    this(SorterState(), initStates(transportersIds, transportMap), NoColor, transportMap)
+  def this(transporters: Map[Int, Port], transportMap: TransportMap) = {
+    this(SorterState(), initStates(transporters, transportMap), NoColor, transportMap)
   }
 
   val roadMap = new RoadMap(transportMap.crossroads)
@@ -173,7 +175,7 @@ class SystemState(
         case (_, state) =>
           def willSoonBeOccupied(point: Int, tasks: Seq[TransporterQueueTask]): Boolean = {
             val p = tasks.indexWhere(_.endPoint == point)
-            p >= 0 && p <= 2
+            p == 0
           }
 
           val endPoint = state.currentTask.endPoint

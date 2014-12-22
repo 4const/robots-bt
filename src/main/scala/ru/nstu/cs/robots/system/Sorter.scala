@@ -37,7 +37,7 @@ class Sorter(id: Int) extends Actor {
       if (balls.exists(_._2 != 0)) {
         context.parent ! Balls(balls)
       }
-      scheduleAsk(30 seconds)
+      scheduleAsk(10 seconds)
   }
 
   scheduleAsk(10 seconds)

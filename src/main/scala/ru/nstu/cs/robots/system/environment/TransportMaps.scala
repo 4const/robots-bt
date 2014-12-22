@@ -30,14 +30,14 @@ object TransportMaps {
       Port(16, Left))
 
     def sorterPorts = Map(
-      Red -> Port(2, Top),
-      Green -> Port(4, Top),
+      Red -> Port(4, Top),
+      Green -> Port(2, Top),
       Blue -> Port(6, Top)
     )
 
     def packerPorts = Map(
-      Red -> Port(14, Bottom),
-      Green -> Port(12, Bottom),
+      Red -> Port(12, Bottom),
+      Green -> Port(14, Bottom),
       Blue -> Port(10, Bottom)
     )
 

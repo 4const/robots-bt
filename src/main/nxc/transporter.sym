@@ -1,0 +1,1158 @@
+#SYMBOLS
+Index	Identifier	Type	Flag	Data	Size	RefCount
+0	__DU0SetSensorLight_inline_init	5	1	0	4	4
+1	__signed_stack_001Back	6	1	4	4	8
+2	__D0SetSensorLight_inline_init	6	1	8	4	6
+3	__D0waitForBtConnection	6	1	12	4	12
+4	__DU0waitForBtConnection	5	1	16	4	2
+5	__signed_stack_002Back	6	1	20	4	6
+6	__signed_stack_001Left	6	1	24	4	4
+7	__signed_stack_002Left	6	1	28	4	4
+8	__unsigned_stack_001Back	5	1	32	4	2
+9	__signed_stack_003Back	6	1	36	4	6
+10	__signed_stack_004Back	6	1	40	4	4
+11	__SPTArgsMutex	9	0	44	4	8
+12	__D0Back	6	1	48	4	12
+13	__RemoteMutex	9	0	52	4	4
+14	__CBTWMutex	9	0	56	4	4
+15	__SRSTmpLongVal	6	1	60	4	4
+16	__D0Left	6	1	64	4	5
+17	__D0Right	6	1	68	4	5
+18	__D0Stabilize	6	1	72	4	8
+19	__DF0PID	10	1	76	4	2
+20	__D0Line	6	1	80	4	15
+21	__D0PID	6	1	84	4	18
+22	__signed_stack_003Left	6	1	88	4	4
+23	__signed_stack_002waitForBtConnection	6	1	92	4	2
+24	sync	9	0	96	4	12
+25	__signed_stack_001waitForBtConnection	6	1	100	4	2
+26	__signed_stack_001Stabilize	6	1	104	4	4
+27	__unsigned_stack_001Stabilize	5	1	108	4	4
+28	__constValf1P3	10	0	112	4	1
+29	__waitForBtConnection_7qG2_value_7qG2_001	6	1	116	4	3
+30	__Wait_7qG2_ms_7qG2_000_inline_waitForBtConnection	5	1	120	4	2
+31	__Back_7qG2_time_7qG2_000	6	1	124	4	2
+32	__constValf0P001	10	0	128	4	1
+33	__Stabilize_7qG2_time_7qG2_000	6	1	132	4	4
+34	__signed_stack_003Line	6	1	136	4	2
+35	__signed_stack_001PID	6	1	140	4	8
+36	__signed_stack_002Line	6	1	144	4	4
+37	__signed_stack_004Left	6	1	148	4	2
+38	__signed_stack_001Line	6	1	152	4	8
+39	__signed_stack_002PID	6	1	156	4	2
+40	__signed_stack_003Right	6	1	160	4	4
+41	__signed_stack_004Right	6	1	164	4	2
+42	__signed_stack_002Right	6	1	168	4	4
+43	__float_stack_001PID	10	1	172	4	4
+44	__signed_stack_001Right	6	1	176	4	4
+45	__MRMutex	9	0	180	4	2
+46	__OnRevMutex	9	0	184	4	2
+47	__rotate_theAngle5	5	1	188	4	2
+48	__TextOutMutex	9	0	192	4	2
+49	__rotateMutex2	9	0	196	4	10
+50	__rotate_angle5	6	1	200	4	9
+51	__rotateMutex1	9	0	204	4	10
+52	__RRNTmpVal	6	1	208	4	4
+53	powerLeft	4	1	212	2	7
+54	delta	4	1	214	2	5
+55	powerRight	4	1	216	2	6
+56	deltaOld	4	1	218	2	3
+57	integral	4	1	220	2	4
+58	power	4	1	222	2	3
+59	x	4	1	224	2	2
+60	__rotate_RotCount5	4	1	226	2	4
+61	__rotate_OldRotCount5	4	1	228	2	2
+62	y	4	1	230	2	2
+63	isCompleted	1	0	232	1	6
+64	__rotate_theOM5	1	1	233	1	7
+65	__PID_return	1	1	234	1	4
+66	__rotate_theRM5	1	1	235	1	4
+67	__rotate_stop5	1	1	236	1	6
+68	__rotate_sync5	1	1	237	1	6
+69	__rotate_firstPort5	1	1	238	1	5
+70	__rotate_theUF5	1	1	239	1	6
+71	__rotate_turnpct5	2	1	240	1	7
+72	__SetSensorMode_7qG2_port_7qG2_000_inline_SetSensorLight_inline_init	1	1	241	1	4
+73	__SetSensorMode_7qG2_mode_7qG2_000_inline_SetSensorLight_inline_init	1	1	242	1	4
+74	__SetSensorType_7qG2_type_7qG2_000_inline_SetSensorLight_inline_init	1	1	243	1	4
+75	__SetSensorLight_7qG2_bActive_7qG2_000_inline_init	1	1	244	1	4
+76	__SetSensorType_7qG2_port_7qG2_000_inline_SetSensorLight_inline_init	1	1	245	1	4
+77	____initialize_global_data_return	1	1	246	1	3
+78	__waitForBtConnection_Spawner_return	1	1	247	1	1
+79	__constValNeg1	2	0	248	1	1
+80	__ResetSensor_7qG2_port_7qG2_000_inline_SetSensorLight_inline_init	1	1	249	1	2
+81	__OnRev_Tmp	2	1	250	1	2
+82	__SetSensorLight_7qG2_port_7qG2_000_inline_init	1	1	251	1	10
+83	__Line_return	1	1	252	1	6
+84	__Stabilize_return	1	1	253	1	3
+85	__constVal63	2	0	254	1	7
+86	__rotate_power5	1	1	255	1	8
+87	__constVal96	2	0	256	1	12
+88	__Back_return	1	1	257	1	3
+89	__init_return	1	1	258	1	3
+90	__Left_return	1	1	259	1	3
+91	__constValNeg50	2	0	260	1	1
+92	__Right_return	1	1	261	1	3
+93	__rotate_theRS5	1	1	262	1	3
+94	____ResetSensorSubroutine_return	1	1	263	1	4
+95	__ResetSensorTmp	1	1	264	1	2
+96	__zfLine	1	1	265	1	9
+97	__zfPID	1	1	266	1	12
+98	__ResetSensorPort	1	1	267	1	4
+99	__constVal6	2	0	268	1	2
+100	__zfwaitForBtConnection	1	1	269	1	4
+101	__zfStabilize	1	1	270	1	6
+102	__constVal5	2	0	271	1	2
+103	__constVal20	2	0	272	1	1
+104	__PFTmp	1	1	273	1	1
+105	__RRNErr	1	1	274	1	1
+106	__constValNeg100	2	0	275	1	5
+107	__constVal8	2	0	276	1	1
+108	__zfBack	1	1	277	1	3
+109	__constVal2	2	0	278	1	3
+110	__constVal7	2	0	279	1	1
+111	__constVal9	2	0	280	1	1
+112	__rotate_theTurnPct5	2	1	281	1	4
+113	__rotate_thePower5	2	1	282	1	4
+114	__constVal1	2	0	283	1	10
+115	__constVal32	2	0	284	1	29
+116	__rotate_theRVI5	1	1	285	1	6
+117	__rotate_theRVP5	1	1	286	1	6
+118	__rotate_rs5	1	1	287	1	2
+119	__rotate_theRVD5	1	1	288	1	6
+120	__constVal0	2	1	289	1	41
+121	__zfSetSensorLight_inline_init	1	1	290	1	4
+122	____RotateMotor5_return	1	1	291	1	7
+123	__constVal3	2	0	292	1	9
+124	____RotateMotor5_sign_tmp	2	1	293	1	4
+125	__constVal50	2	0	294	1	3
+126	__CBTWArgs	8	0	3	8	8
+127	__CBTWArgs.Result	2	1	296	1	8
+128	__CBTWArgs.Connection	1	1	297	1	8
+129	__CBTWArgs.Buffer	7	0	298	4	8
+130	__CBTWArgs.Buffer.Buffer_type	1	0	0	1	0
+131	__TextOutArgs	8	0	4	16	6
+132	__TextOutArgs.Result	2	1	300	1	6
+133	__TextOutArgs.Location	8	0	2	4	6
+134	__TextOutArgs.Location.X	4	1	304	2	6
+135	__TextOutArgs.Location.Y	4	1	306	2	6
+136	__TextOutArgs.Text	7	0	308	4	6
+137	__TextOutArgs.Text.Text_type	1	0	0	1	0
+138	__TextOutArgs.Options	5	1	312	4	6
+139	__SPTArgs	8	0	5	8	24
+140	__SPTArgs.Result	2	1	316	1	24
+141	__SPTArgs.Frequency	3	1	318	2	24
+142	__SPTArgs.Duration	3	1	320	2	24
+143	__SPTArgs.Loop	1	1	322	1	24
+144	__SPTArgs.Volume	1	1	323	1	24
+145	__MRArgs	8	0	4	8	5
+146	__MRArgs.Result	2	1	324	1	5
+147	__MRArgs.QueueID	1	1	325	1	5
+148	__MRArgs.Remove	1	1	326	1	5
+149	__MRArgs.Message	7	0	328	4	5
+150	__MRArgs.Message.Message_type	1	0	0	1	0
+151	__waitForBtConnection_7qG2_answer_7qG2_003	7	0	330	4	4
+152	__waitForBtConnection_7qG2_answer_7qG2_003.__waitForBtConnection_7qG2_answer_7qG2_003_type	1	0	0	1	0
+153	__OUT_BC	7	0	332	4	10
+154	__OUT_BC.__OUT_BC_type	1	0	0	1	0
+155	__waitForBtConnection_7qG2_answerStr_7qG2_003	7	0	334	4	6
+156	__waitForBtConnection_7qG2_answerStr_7qG2_003.__waitForBtConnection_7qG2_answerStr_7qG2_003_type	1	0	0	1	0
+157	__SRSTmpBuf	7	0	336	4	12
+158	__SRSTmpBuf.__SRSTmpBuf_type	1	0	0	1	0
+159	__ByteArrayToStr_7qG2_data_7qG2_000_inline_waitForBtConnection	7	0	338	4	4
+160	__ByteArrayToStr_7qG2_data_7qG2_000_inline_waitForBtConnection.__ByteArrayToStr_7qG2_data_7qG2_000_inline_waitForBtConnection_type	1	0	0	1	0
+161	__SRSSendBuf	7	0	340	4	4
+162	__SRSSendBuf.__SRSSendBuf_type	1	0	0	1	0
+163	__strretvalwaitForBtConnection	7	0	342	4	4
+164	__strretvalwaitForBtConnection.__strretvalwaitForBtConnection_type	1	0	0	1	0
+165	__strbufByteArrayToStr_inline_waitForBtConnection	7	0	344	4	4
+166	__strbufByteArrayToStr_inline_waitForBtConnection.__strbufByteArrayToStr_inline_waitForBtConnection_type	1	0	0	1	0
+167	__rotate_ports5	7	0	346	4	10
+168	__rotate_ports5.__rotate_ports5_type	1	0	0	1	0
+169	__strbufwaitForBtConnection	7	0	348	4	6
+170	__strbufwaitForBtConnection.__strbufwaitForBtConnection_type	1	0	0	1	0
+171	__constStr0009	7	0	350	4	1
+172	__constStr0009.__constStr0009_type	1	1	0	1	0
+173	__DCMessageWritePacket	7	0	352	4	2
+174	__DCMessageWritePacket.__DCMessageWritePacket_type	1	0	0	1	0
+#SOURCES
+Clump	Line	PC	Source
+0	234	0	#line 234 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+0	235	0		subcall __initialize_global_data, ____initialize_global_data_return
+0	234	2	#line 234 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+0	236	2	#line 236 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+0	237	2		subcall init, __init_return
+0	236	4	#line 236 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+0	238	4	#line 238 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+0	239	4		subcall __waitForBtConnection_Spawner, __waitForBtConnection_Spawner_return
+0	238	6	#line 238 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+0	239	6		exit -1, -1
+1	4741	0		brtst 4, __rotate_Done5, __rotate_angle5
+1	4742	3		set ____RotateMotor5_sign_tmp, 0
+1	4742	6		brtst EQ, __sign_5, __rotate_angle5
+1	4742	9		set ____RotateMotor5_sign_tmp, -1
+1	4742	12		brtst LT, __sign_5, __rotate_angle5
+1	4742	15		set ____RotateMotor5_sign_tmp, 1
+1	4742	18	__sign_5:	mov __rotate_thePower5, ____RotateMotor5_sign_tmp
+1	4743	20		abs __rotate_theAngle5, __rotate_angle5
+1	4744	23		mul __rotate_thePower5, __rotate_thePower5, __rotate_power5
+1	4746	27		set __rotate_theUF5, 23
+1	4747	30		brtst 4, __rotate_NoSync5, __rotate_sync5
+1	4748	33		set __rotate_theOM5, 7
+1	4749	36		set __rotate_theRM5, 2
+1	4750	39		mov __rotate_theTurnPct5, __rotate_turnpct5
+1	4751	41		brtst 4, __rotate_Start5, __rotate_theTurnPct5
+1	4752	44		add __rotate_theUF5, __rotate_theUF5, __constVal32
+1	4753	48		jmp __rotate_Start5
+1	4755	50		set __rotate_theOM5, 3
+1	4756	53		set __rotate_theRM5, 0
+1	4757	56		set __rotate_theTurnPct5, 0
+1	4759	59		set __rotate_theRS5, 32
+1	4760	62		setout __rotate_ports5, 1, __rotate_theOM5, 8, __rotate_theRM5, 5, __rotate_theAngle5, 6, __rotate_theRS5, 10, __rotate_theRVP5, 11, __rotate_theRVI5, 12, __rotate_theRVD5, 2, __rotate_thePower5, 7, __rotate_turnpct5, 0, __rotate_theUF5
+1	4763	85		index __rotate_firstPort5, __rotate_ports5, 65535
+1	4765	89		getout __rotate_power5, __rotate_firstPort5, 2
+1	4766	93		brtst 4, __rotate_doneRunning5, __rotate_power5
+1	4767	96		getout __rotate_rs5, __rotate_firstPort5, 6
+1	4768	100		brcmp 4, __rotate_Running5, __rotate_rs5, __constVal32
+1	4770	104		brtst 4, __rotate_Reset5, __rotate_stop5
+1	4772	107		set __rotate_theOM5, 7
+1	4773	110		set __rotate_theUF5, 7
+1	4774	113		setout __rotate_ports5, 1, __rotate_theOM5, 8, __constVal1, 6, __rotate_theRS5, 2, __constVal0, 5, __constVal0, 0, __rotate_theUF5
+1	4776	128		getout __rotate_RotCount5, __rotate_firstPort5, 14
+1	4778	132		mov __rotate_OldRotCount5, __rotate_RotCount5
+1	4779	134		wait2 NA, __constVal50
+1	4781	137		getout __rotate_RotCount5, __rotate_firstPort5, 14
+1	4782	141		brcmp 5, __rotate_Stabilize5, __rotate_OldRotCount5, __rotate_RotCount5
+1	4783	145		set __rotate_theOM5, 4
+1	4784	148		setout __rotate_ports5, 8, __rotate_theRM5, 6, __constVal0, 1, __rotate_theOM5, 0, __constVal1
+1	4787	159		brtst 4, __rotate_Done5, __rotate_theTurnPct5
+1	4788	162		setout __rotate_ports5, 0, __constVal32
+1	4790	167		subret ____RotateMotor5_return
+2	4885	0		setin __constVal1, __ResetSensorPort, 5
+2	4887	4		getin __ResetSensorTmp, __ResetSensorPort, 5
+2	4888	8		brtst 5, __SensorStillInvalid, __ResetSensorTmp
+2	4889	11		subret ____ResetSensorSubroutine_return
+3	35	0	#line 35 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	36	0		getin x, __constVal0, 4
+3	35	4	#line 35 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	35	4	#line 35 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	35	4	#line 35 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	36	4	#line 36 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	37	4		getin y, __constVal1, 4
+3	36	8	#line 36 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	36	8	#line 36 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	36	8	#line 36 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	38	8	#line 38 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	38	8	#line 38 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	8	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	8	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	41	8		sub delta, x, y
+3	40	12	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	12	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	12	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	12	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	12	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	12	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	41	12		mul __float_stack_001PID, delta, __constValf1P3
+3	40	16	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	16	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	16	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	16	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	16	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	41	16		mul __DF0PID, integral, __constValf0P001
+3	40	20	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	41	20		add __float_stack_001PID, __float_stack_001PID, __DF0PID
+3	40	24	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	24	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	24	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	24	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	40	24	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	41	24		sub __signed_stack_002PID, delta, deltaOld
+3	40	28	#line 40 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	42	28	#line 42 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	42	28	#line 42 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	43	28		mul __D0PID, __signed_stack_002PID, __constVal20
+3	42	32	#line 42 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	43	32		add power, __float_stack_001PID, __D0PID
+3	42	36	#line 42 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	42	36	#line 42 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	42	36	#line 42 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	42	36	#line 42 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	43	36	#line 43 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	43	36	#line 43 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	44	36		add powerLeft, __constVal50, power
+3	43	40	#line 43 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	43	40	#line 43 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	43	40	#line 43 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	43	40	#line 43 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	45	40	#line 45 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	45	40	#line 45 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	46	40		sub powerRight, __constVal50, power
+3	45	44	#line 45 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	45	44	#line 45 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	45	44	#line 45 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	46	44		mov __signed_stack_001PID, powerLeft
+3	45	46	#line 45 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	45	46	#line 45 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	46	46		set __D0PID, 100
+3	45	49	#line 45 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	46	49		cmp 1, __zfPID, __signed_stack_001PID, __D0PID
+3	45	53	#line 45 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	46	53		mov __D0PID, __zfPID
+3	45	55	#line 45 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	46	55		brtst 4, __NXC_Label_505, __zfPID
+3	45	58	#line 45 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	46	58		set powerLeft, 100
+3	45	61	#line 45 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	45	61	#line 45 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	46	61	#line 46 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	46	61	#line 46 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	47	61		mov __signed_stack_001PID, powerLeft
+3	46	63	#line 46 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	46	63	#line 46 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	47	63		mov __D0PID, __constValNeg100
+3	46	65	#line 46 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	47	65		cmp 0, __zfPID, __signed_stack_001PID, __D0PID
+3	46	69	#line 46 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	47	69		mov __D0PID, __zfPID
+3	46	71	#line 46 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	47	71		brtst 4, __NXC_Label_510, __zfPID
+3	46	74	#line 46 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	47	74		mov powerLeft, __constValNeg100
+3	46	76	#line 46 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	46	76	#line 46 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	47	76	#line 47 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	47	76	#line 47 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	48	76		mov __signed_stack_001PID, powerRight
+3	47	78	#line 47 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	47	78	#line 47 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	48	78		set __D0PID, 100
+3	47	81	#line 47 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	48	81		cmp 1, __zfPID, __signed_stack_001PID, __D0PID
+3	47	85	#line 47 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	48	85		mov __D0PID, __zfPID
+3	47	87	#line 47 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	48	87		brtst 4, __NXC_Label_515, __zfPID
+3	47	90	#line 47 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	48	90		set powerRight, 100
+3	47	93	#line 47 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	47	93	#line 47 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	48	93	#line 48 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	48	93	#line 48 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	49	93		mov __signed_stack_001PID, powerRight
+3	48	95	#line 48 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	48	95	#line 48 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	49	95		mov __D0PID, __constValNeg100
+3	48	97	#line 48 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	49	97		cmp 0, __zfPID, __signed_stack_001PID, __D0PID
+3	48	101	#line 48 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	49	101		mov __D0PID, __zfPID
+3	48	103	#line 48 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	49	103		brtst 4, __NXC_Label_520, __zfPID
+3	48	106	#line 48 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	49	106		mov powerRight, __constValNeg100
+3	48	108	#line 48 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	48	108	#line 48 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	50	108	#line 50 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	50	108	#line 50 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	51	108		mov __D0PID, powerLeft
+3	51	110	#line 51 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	52	110	#pragma macro 7
+3	52	110		setout __constVal1, 2, __D0PID, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+3	4571	133	#line 4571 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	51	133	#line 51 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	51	133	#line 51 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	52	133		mov __D0PID, powerRight
+3	53	135	#line 53 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	54	135	#pragma macro 7
+3	54	135		setout __constVal2, 2, __D0PID, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+3	4578	158	#line 4578 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	53	158	#line 53 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	54	158	#line 54 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	55	158		mov deltaOld, delta
+3	54	160	#line 54 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	54	160	#line 54 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	55	160	#line 55 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	55	160	#line 55 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	56	160		add integral, integral, delta
+3	55	164	#line 55 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	57	164	#line 57 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+3	58	164		subret __PID_return
+4	82	0	#line 82 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	83	0		acquire sync
+4	82	1	#line 82 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	83	1	#line 83 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	84	1		set isCompleted, 0
+4	83	4	#line 83 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	83	4	#line 83 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	85	4	#line 85 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	86	4		release sync
+4	85	5	#line 85 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	85	5	#line 85 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	86	5		set __D0Line, 1
+4	87	8	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	8		tst 5, __zfLine, __D0Line
+4	87	11	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	11		brtst 4, __NXC_Label_576, __zfLine
+4	87	14	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	14		getin __signed_stack_001Line, __constVal0, 4
+4	87	18	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	87	18	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	18		set __D0Line, 50
+4	87	21	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	21		cmp 0, __zfLine, __signed_stack_001Line, __D0Line
+4	87	25	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	25		mov __D0Line, __zfLine
+4	87	27	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	27		brtst 4, __NXC_Label_580, __zfLine
+4	87	30	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	30		mov __signed_stack_001Line, __D0Line
+4	87	32	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	32		getin __signed_stack_002Line, __constVal1, 4
+4	87	36	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	87	36	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	36		set __D0Line, 50
+4	87	39	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	39		cmp 0, __zfLine, __signed_stack_002Line, __D0Line
+4	87	43	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	87	43	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	43		and __D0Line, __signed_stack_001Line, __zfLine
+4	87	47	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	47		tst 5, __zfLine, __D0Line
+4	87	50	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	50		brtst 4, __NXC_Label_581, __zfLine
+4	87	53	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	88	53		jmp __NXC_Label_576
+4	87	55	#line 87 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	89	55	#line 89 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	90	55	#line 90 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	91	55		subcall PID, __PID_return
+4	90	57	#line 90 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	92	57	#line 92 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	93	57		jmp __NXC_Label_575
+4	92	59	#line 92 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	93	59	#line 93 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	94	59	#pragma macro 7
+4	94	59		setout __OUT_BC, 2, __constVal0, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+4	4891	82	#line 4891 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	93	82	#line 93 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	93	82	#line 93 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	94	82		set __signed_stack_001Line, 500
+4	93	85	#line 93 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	93	85	#line 93 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	94	85		set __signed_stack_002Line, 100
+4	93	88	#line 93 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	93	88	#line 93 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	94	88		set __signed_stack_003Line, 4
+4	93	91	#line 93 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	93	91	#line 93 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	94	91		set __D0Line, 0
+4	95	94	#line 95 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	96	94		acquire __SPTArgsMutex
+4	95	95	#line 95 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	96	95		mov __SPTArgs.Frequency, __signed_stack_001Line
+4	95	97	#line 95 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	96	97		mov __SPTArgs.Duration, __signed_stack_002Line
+4	95	99	#line 95 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	96	99		mov __SPTArgs.Volume, __signed_stack_003Line
+4	95	101	#line 95 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	96	101		mov __SPTArgs.Loop, __D0Line
+4	95	103	#line 95 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	96	103		syscall 10, __SPTArgs
+4	95	106	#line 95 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	96	106		mov __D0Line, __SPTArgs.Result
+4	95	108	#line 95 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	96	108		release __SPTArgsMutex
+4	95	109	#line 95 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	95	109	#line 95 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	96	109		set __signed_stack_001Line, 50
+4	95	112	#line 95 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	95	112	#line 95 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	96	112		set __D0Line, 60
+4	97	115	#line 97 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	98	115	#pragma macro 35
+4	98	115		acquire __rotateMutex1
+4	98	116		acquire __rotateMutex2
+4	98	117		mov __rotate_ports5, __OUT_BC
+4	98	119		mov __rotate_power5, __signed_stack_001Line
+4	98	121		mov __rotate_angle5, __D0Line
+4	98	123		mov __rotate_turnpct5, __constVal0
+4	98	125		mov __rotate_sync5, __constVal0
+4	98	127		mov __rotate_stop5, __constVal1
+4	98	129		mov __rotate_theRVP5, __constVal32
+4	98	131		mov __rotate_theRVI5, __constVal0
+4	98	133		mov __rotate_theRVD5, __constVal96
+4	98	135		subcall __RotateMotor5, ____RotateMotor5_return
+4	98	137		release __rotateMutex2
+4	98	138		release __rotateMutex1
+4	4943	139	#line 4943 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	97	139	#line 97 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	98	139	#line 98 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	99	139		acquire sync
+4	98	140	#line 98 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	99	140	#line 99 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	100	140		set isCompleted, 1
+4	99	143	#line 99 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	99	143	#line 99 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	100	143	#line 100 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	101	143		release sync
+4	100	144	#line 100 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	102	144	#line 102 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+4	103	144		subret __Line_return
+5	104	0	#line 104 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	105	0		gettick __Stabilize_7qG2_time_7qG2_000
+5	104	2	#line 104 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	105	2	#line 105 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	106	2		gettick __unsigned_stack_001Stabilize
+5	105	4	#line 105 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	105	4	#line 105 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	105	4	#line 105 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	106	4		sub __signed_stack_001Stabilize, __unsigned_stack_001Stabilize, __Stabilize_7qG2_time_7qG2_000
+5	105	8	#line 105 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	105	8	#line 105 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	106	8		set __D0Stabilize, 300
+5	105	11	#line 105 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	106	11		cmp 0, __zfStabilize, __signed_stack_001Stabilize, __D0Stabilize
+5	105	15	#line 105 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	106	15		mov __D0Stabilize, __zfStabilize
+5	106	17	#line 106 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	107	17		brtst 4, __NXC_Label_599, __zfStabilize
+5	107	20	#line 107 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	108	20		subcall PID, __PID_return
+5	107	22	#line 107 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	110	22	#line 110 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	111	22		jmp __NXC_Label_598
+5	110	24	#line 110 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	110	24	#line 110 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	111	24		gettick __Stabilize_7qG2_time_7qG2_000
+5	110	26	#line 110 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	110	26	#line 110 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	110	26	#line 110 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	111	26	#line 111 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	112	26		gettick __unsigned_stack_001Stabilize
+5	111	28	#line 111 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	111	28	#line 111 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	111	28	#line 111 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	112	28		sub __signed_stack_001Stabilize, __unsigned_stack_001Stabilize, __Stabilize_7qG2_time_7qG2_000
+5	111	32	#line 111 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	111	32	#line 111 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	112	32		set __D0Stabilize, 300
+5	111	35	#line 111 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	112	35		cmp 0, __zfStabilize, __signed_stack_001Stabilize, __D0Stabilize
+5	111	39	#line 111 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	112	39		mov __D0Stabilize, __zfStabilize
+5	112	41	#line 112 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	113	41		brtst 4, __NXC_Label_605, __zfStabilize
+5	112	44	#line 112 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	113	44		mov __D0Stabilize, __constValNeg50
+5	113	46	#line 113 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	114	46	#pragma macro 7
+5	114	46		setout __OUT_BC, 2, __D0Stabilize, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+5	5035	69	#line 5035 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	113	69	#line 113 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	115	69	#line 115 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	116	69		jmp __NXC_Label_604
+5	115	71	#line 115 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	116	71	#line 116 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	117	71	#pragma macro 7
+5	117	71		setout __OUT_BC, 2, __constVal0, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+5	5042	94	#line 5042 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	116	94	#line 116 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	118	94	#line 118 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+5	119	94		subret __Stabilize_return
+6	120	0	#line 120 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	121	0		acquire sync
+6	120	1	#line 120 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	121	1	#line 121 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	122	1		set isCompleted, 0
+6	121	4	#line 121 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	121	4	#line 121 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	123	4	#line 123 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	124	4		release sync
+6	123	5	#line 123 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	123	5	#line 123 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	124	5		set __signed_stack_001Right, 50
+6	123	8	#line 123 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	123	8	#line 123 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	124	8		set __signed_stack_002Right, 190
+6	123	11	#line 123 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	123	11	#line 123 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	124	11		set __signed_stack_003Right, 100
+6	123	14	#line 123 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	123	14	#line 123 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	124	14		set __signed_stack_004Right, 1
+6	123	17	#line 123 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	123	17	#line 123 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	124	17		set __D0Right, 1
+6	125	20	#line 125 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	126	20	#pragma macro 35
+6	126	20		acquire __rotateMutex1
+6	126	21		acquire __rotateMutex2
+6	126	22		mov __rotate_ports5, __OUT_BC
+6	126	24		mov __rotate_power5, __signed_stack_001Right
+6	126	26		mov __rotate_angle5, __signed_stack_002Right
+6	126	28		mov __rotate_turnpct5, __signed_stack_003Right
+6	126	30		mov __rotate_sync5, __signed_stack_004Right
+6	126	32		mov __rotate_stop5, __D0Right
+6	126	34		mov __rotate_theRVP5, __constVal32
+6	126	36		mov __rotate_theRVI5, __constVal0
+6	126	38		mov __rotate_theRVD5, __constVal96
+6	126	40		subcall __RotateMotor5, ____RotateMotor5_return
+6	126	42		release __rotateMutex2
+6	126	43		release __rotateMutex1
+6	5091	44	#line 5091 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	125	44	#line 125 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	125	44	#line 125 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	126	44		set __signed_stack_001Right, 600
+6	125	47	#line 125 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	125	47	#line 125 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	126	47		set __signed_stack_002Right, 100
+6	125	50	#line 125 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	125	50	#line 125 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	126	50		set __signed_stack_003Right, 4
+6	125	53	#line 125 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	125	53	#line 125 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	126	53		set __D0Right, 0
+6	126	56	#line 126 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	127	56		acquire __SPTArgsMutex
+6	126	57	#line 126 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	127	57		mov __SPTArgs.Frequency, __signed_stack_001Right
+6	126	59	#line 126 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	127	59		mov __SPTArgs.Duration, __signed_stack_002Right
+6	126	61	#line 126 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	127	61		mov __SPTArgs.Volume, __signed_stack_003Right
+6	126	63	#line 126 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	127	63		mov __SPTArgs.Loop, __D0Right
+6	126	65	#line 126 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	127	65		syscall 10, __SPTArgs
+6	126	68	#line 126 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	127	68		mov __D0Right, __SPTArgs.Result
+6	126	70	#line 126 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	127	70		release __SPTArgsMutex
+6	126	71	#line 126 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	128	71	#line 128 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+6	129	71		subret __Right_return
+7	130	0	#line 130 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	131	0		acquire sync
+7	130	1	#line 130 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	131	1	#line 131 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	132	1		set isCompleted, 0
+7	131	4	#line 131 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	131	4	#line 131 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	133	4	#line 133 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	134	4		release sync
+7	133	5	#line 133 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	133	5	#line 133 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	134	5		set __signed_stack_001Left, 50
+7	133	8	#line 133 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	133	8	#line 133 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	134	8		set __signed_stack_002Left, 190
+7	133	11	#line 133 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	133	11	#line 133 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	134	11		mov __signed_stack_003Left, __constValNeg100
+7	133	13	#line 133 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	133	13	#line 133 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	134	13		set __signed_stack_004Left, 1
+7	133	16	#line 133 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	133	16	#line 133 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	134	16		set __D0Left, 1
+7	135	19	#line 135 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	136	19	#pragma macro 35
+7	136	19		acquire __rotateMutex1
+7	136	20		acquire __rotateMutex2
+7	136	21		mov __rotate_ports5, __OUT_BC
+7	136	23		mov __rotate_power5, __signed_stack_001Left
+7	136	25		mov __rotate_angle5, __signed_stack_002Left
+7	136	27		mov __rotate_turnpct5, __signed_stack_003Left
+7	136	29		mov __rotate_sync5, __signed_stack_004Left
+7	136	31		mov __rotate_stop5, __D0Left
+7	136	33		mov __rotate_theRVP5, __constVal32
+7	136	35		mov __rotate_theRVI5, __constVal0
+7	136	37		mov __rotate_theRVD5, __constVal96
+7	136	39		subcall __RotateMotor5, ____RotateMotor5_return
+7	136	41		release __rotateMutex2
+7	136	42		release __rotateMutex1
+7	5179	43	#line 5179 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	135	43	#line 135 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	135	43	#line 135 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	136	43		set __signed_stack_001Left, 700
+7	135	46	#line 135 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	135	46	#line 135 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	136	46		set __signed_stack_002Left, 100
+7	135	49	#line 135 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	135	49	#line 135 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	136	49		set __signed_stack_003Left, 4
+7	135	52	#line 135 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	135	52	#line 135 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	136	52		set __D0Left, 0
+7	136	55	#line 136 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	137	55		acquire __SPTArgsMutex
+7	136	56	#line 136 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	137	56		mov __SPTArgs.Frequency, __signed_stack_001Left
+7	136	59	#line 136 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	137	59		mov __SPTArgs.Duration, __signed_stack_002Left
+7	136	62	#line 136 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	137	62		mov __SPTArgs.Volume, __signed_stack_003Left
+7	136	64	#line 136 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	137	64		mov __SPTArgs.Loop, __D0Left
+7	136	66	#line 136 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	137	66		syscall 10, __SPTArgs
+7	136	69	#line 136 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	137	69		mov __D0Left, __SPTArgs.Result
+7	136	71	#line 136 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	137	71		release __SPTArgsMutex
+7	136	72	#line 136 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	138	72	#line 138 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+7	139	72		subret __Left_return
+8	140	0	#line 140 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	141	0		acquire sync
+8	140	1	#line 140 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	141	1	#line 141 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	142	1		set isCompleted, 0
+8	141	4	#line 141 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	141	4	#line 141 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	143	4	#line 143 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	144	4		release sync
+8	143	5	#line 143 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	143	5	#line 143 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	144	5		gettick __Back_7qG2_time_7qG2_000
+8	143	7	#line 143 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	144	7	#line 144 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	145	7		mov __D0Back, powerLeft
+8	145	9	#line 145 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	146	9	#pragma macro 10
+8	146	9		acquire __OnRevMutex
+8	146	10		neg __OnRev_Tmp, __D0Back
+8	146	13		setout __OUT_BC, 2, __OnRev_Tmp, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+8	146	36		release __OnRevMutex
+8	5253	37	#line 5253 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	145	37	#line 145 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	145	37	#line 145 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	146	37		gettick __unsigned_stack_001Back
+8	145	39	#line 145 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	145	39	#line 145 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	145	39	#line 145 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	146	39		sub __signed_stack_001Back, __unsigned_stack_001Back, __Back_7qG2_time_7qG2_000
+8	145	43	#line 145 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	145	43	#line 145 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	146	43		set __D0Back, 500
+8	145	46	#line 145 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	146	46		cmp 0, __zfBack, __signed_stack_001Back, __D0Back
+8	145	50	#line 145 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	146	50		mov __D0Back, __zfBack
+8	145	52	#line 145 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	146	52		brtst 4, __NXC_Label_657, __zfBack
+8	146	55	#line 146 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	147	55		jmp __NXC_Label_656
+8	146	57	#line 146 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	148	57	#line 148 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	149	57	#pragma macro 7
+8	149	57		setout __OUT_BC, 2, __constVal0, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+8	5281	80	#line 5281 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	148	80	#line 148 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	148	80	#line 148 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	149	80		set __signed_stack_001Back, 50
+8	148	83	#line 148 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	148	83	#line 148 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	149	83		set __signed_stack_002Back, 185
+8	148	86	#line 148 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	148	86	#line 148 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	149	86		set __signed_stack_003Back, 100
+8	148	89	#line 148 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	148	89	#line 148 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	149	89		set __signed_stack_004Back, 1
+8	148	92	#line 148 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	148	92	#line 148 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	149	92		set __D0Back, 1
+8	149	95	#line 149 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	150	95	#pragma macro 35
+8	150	95		acquire __rotateMutex1
+8	150	96		acquire __rotateMutex2
+8	150	97		mov __rotate_ports5, __OUT_BC
+8	150	99		mov __rotate_power5, __signed_stack_001Back
+8	150	101		mov __rotate_angle5, __signed_stack_002Back
+8	150	103		mov __rotate_turnpct5, __signed_stack_003Back
+8	150	105		mov __rotate_sync5, __signed_stack_004Back
+8	150	107		mov __rotate_stop5, __D0Back
+8	150	109		mov __rotate_theRVP5, __constVal32
+8	150	111		mov __rotate_theRVI5, __constVal0
+8	150	113		mov __rotate_theRVD5, __constVal96
+8	150	115		subcall __RotateMotor5, ____RotateMotor5_return
+8	150	117		release __rotateMutex2
+8	150	118		release __rotateMutex1
+8	5312	119	#line 5312 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	149	119	#line 149 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	149	119	#line 149 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	150	119		set __signed_stack_001Back, 50
+8	149	122	#line 149 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	149	122	#line 149 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	150	122		set __signed_stack_002Back, 185
+8	149	125	#line 149 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	149	125	#line 149 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	150	125		set __signed_stack_003Back, 100
+8	149	128	#line 149 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	149	128	#line 149 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	150	128		set __signed_stack_004Back, 1
+8	149	131	#line 149 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	149	131	#line 149 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	150	131		set __D0Back, 1
+8	150	134	#line 150 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	151	134	#pragma macro 35
+8	151	134		acquire __rotateMutex1
+8	151	135		acquire __rotateMutex2
+8	151	136		mov __rotate_ports5, __OUT_BC
+8	151	138		mov __rotate_power5, __signed_stack_001Back
+8	151	140		mov __rotate_angle5, __signed_stack_002Back
+8	151	142		mov __rotate_turnpct5, __signed_stack_003Back
+8	151	144		mov __rotate_sync5, __signed_stack_004Back
+8	151	146		mov __rotate_stop5, __D0Back
+8	151	148		mov __rotate_theRVP5, __constVal32
+8	151	150		mov __rotate_theRVI5, __constVal0
+8	151	152		mov __rotate_theRVD5, __constVal96
+8	151	154		subcall __RotateMotor5, ____RotateMotor5_return
+8	151	156		release __rotateMutex2
+8	151	157		release __rotateMutex1
+8	5343	158	#line 5343 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	150	158	#line 150 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	151	158	#line 151 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	152	158		subcall Stabilize, __Stabilize_return
+8	151	160	#line 151 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	151	160	#line 151 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	152	160		set __signed_stack_001Back, 700
+8	151	163	#line 151 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	151	163	#line 151 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	152	163		set __signed_stack_002Back, 100
+8	151	166	#line 151 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	151	166	#line 151 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	152	166		set __signed_stack_003Back, 4
+8	151	169	#line 151 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	151	169	#line 151 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	152	169		set __D0Back, 0
+8	152	172	#line 152 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	153	172		acquire __SPTArgsMutex
+8	152	173	#line 152 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	153	173		mov __SPTArgs.Frequency, __signed_stack_001Back
+8	152	176	#line 152 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	153	176		mov __SPTArgs.Duration, __signed_stack_002Back
+8	152	179	#line 152 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	153	179		mov __SPTArgs.Volume, __signed_stack_003Back
+8	152	182	#line 152 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	153	182		mov __SPTArgs.Loop, __D0Back
+8	152	185	#line 152 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	153	185		syscall 10, __SPTArgs
+8	152	188	#line 152 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	153	188		mov __D0Back, __SPTArgs.Result
+8	152	190	#line 152 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	153	190		release __SPTArgsMutex
+8	152	191	#line 152 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	154	191	#line 154 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+8	155	191		subret __Back_return
+9	155	0	#line 155 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	156	0		set __SetSensorLight_7qG2_port_7qG2_000_inline_init, 0
+9	155	3	#line 155 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	156	3	#line 156 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	157	3		mov __SetSensorLight_7qG2_bActive_7qG2_000_inline_init, __constVal1
+9	3729	5	#line 3729 "NXCDefs.h"
+9	3730	5		mov __SetSensorType_7qG2_port_7qG2_000_inline_SetSensorLight_inline_init, __SetSensorLight_7qG2_port_7qG2_000_inline_init
+9	3729	7	#line 3729 "NXCDefs.h"
+9	3729	7	#line 3729 "NXCDefs.h"
+9	3730	7		mov __DU0SetSensorLight_inline_init, __SetSensorLight_7qG2_bActive_7qG2_000_inline_init
+9	3729	9	#line 3729 "NXCDefs.h"
+9	3730	9		tst 5, __zfSetSensorLight_inline_init, __DU0SetSensorLight_inline_init
+9	3729	12	#line 3729 "NXCDefs.h"
+9	3730	12		brtst 4, __001__NXC_Label_4, __zfSetSensorLight_inline_init
+9	3729	15	#line 3729 "NXCDefs.h"
+9	3730	15		set __D0SetSensorLight_inline_init, 5
+9	3729	18	#line 3729 "NXCDefs.h"
+9	3730	18		jmp __001__NXC_Label_5
+9	3729	20	#line 3729 "NXCDefs.h"
+9	3730	20		set __D0SetSensorLight_inline_init, 6
+9	3729	23	#line 3729 "NXCDefs.h"
+9	3730	23		mov __SetSensorType_7qG2_type_7qG2_000_inline_SetSensorLight_inline_init, __D0SetSensorLight_inline_init
+9	3663	25	#line 3663 "NXCDefs.h"
+9	3664	25		setin __SetSensorType_7qG2_type_7qG2_000_inline_SetSensorLight_inline_init, __SetSensorType_7qG2_port_7qG2_000_inline_SetSensorLight_inline_init, 0
+9	3663	29	#line 3663 "NXCDefs.h"
+9	3730	29	#line 3730 "NXCDefs.h"
+9	3730	29	#line 3730 "NXCDefs.h"
+9	3731	29		mov __SetSensorMode_7qG2_port_7qG2_000_inline_SetSensorLight_inline_init, __SetSensorLight_7qG2_port_7qG2_000_inline_init
+9	3730	31	#line 3730 "NXCDefs.h"
+9	3730	31	#line 3730 "NXCDefs.h"
+9	3731	31		set __SetSensorMode_7qG2_mode_7qG2_000_inline_SetSensorLight_inline_init, 128
+9	3730	34	#line 3730 "NXCDefs.h"
+9	3676	34	#line 3676 "NXCDefs.h"
+9	3677	34		setin __SetSensorMode_7qG2_mode_7qG2_000_inline_SetSensorLight_inline_init, __SetSensorMode_7qG2_port_7qG2_000_inline_SetSensorLight_inline_init, 1
+9	3676	38	#line 3676 "NXCDefs.h"
+9	3731	38	#line 3731 "NXCDefs.h"
+9	3731	38	#line 3731 "NXCDefs.h"
+9	3732	38		mov __ResetSensor_7qG2_port_7qG2_000_inline_SetSensorLight_inline_init, __SetSensorLight_7qG2_port_7qG2_000_inline_init
+9	3731	40	#line 3731 "NXCDefs.h"
+9	3694	40	#line 3694 "NXCDefs.h"
+9	3695	40	#pragma macro 4
+9	3695	40		mov __ResetSensorPort, __SetSensorLight_7qG2_port_7qG2_000_inline_init
+9	3695	42		subcall __ResetSensorSubroutine, ____ResetSensorSubroutine_return
+9	5483	44	#line 5483 "NXCDefs.h"
+9	3694	44	#line 3694 "NXCDefs.h"
+9	3732	44	#line 3732 "NXCDefs.h"
+9	156	44	#line 156 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	156	44	#line 156 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	157	44		set __SetSensorLight_7qG2_port_7qG2_000_inline_init, 1
+9	156	47	#line 156 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	160	47	#line 160 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	161	47		mov __SetSensorLight_7qG2_bActive_7qG2_000_inline_init, __constVal1
+9	3729	49	#line 3729 "NXCDefs.h"
+9	3730	49		mov __SetSensorType_7qG2_port_7qG2_000_inline_SetSensorLight_inline_init, __SetSensorLight_7qG2_port_7qG2_000_inline_init
+9	3729	51	#line 3729 "NXCDefs.h"
+9	3729	51	#line 3729 "NXCDefs.h"
+9	3730	51		mov __DU0SetSensorLight_inline_init, __SetSensorLight_7qG2_bActive_7qG2_000_inline_init
+9	3729	53	#line 3729 "NXCDefs.h"
+9	3730	53		tst 5, __zfSetSensorLight_inline_init, __DU0SetSensorLight_inline_init
+9	3729	56	#line 3729 "NXCDefs.h"
+9	3730	56		brtst 4, __002__NXC_Label_4, __zfSetSensorLight_inline_init
+9	3729	59	#line 3729 "NXCDefs.h"
+9	3730	59		set __D0SetSensorLight_inline_init, 5
+9	3729	62	#line 3729 "NXCDefs.h"
+9	3730	62		jmp __002__NXC_Label_5
+9	3729	64	#line 3729 "NXCDefs.h"
+9	3730	64		set __D0SetSensorLight_inline_init, 6
+9	3729	67	#line 3729 "NXCDefs.h"
+9	3730	67		mov __SetSensorType_7qG2_type_7qG2_000_inline_SetSensorLight_inline_init, __D0SetSensorLight_inline_init
+9	3663	69	#line 3663 "NXCDefs.h"
+9	3664	69		setin __SetSensorType_7qG2_type_7qG2_000_inline_SetSensorLight_inline_init, __SetSensorType_7qG2_port_7qG2_000_inline_SetSensorLight_inline_init, 0
+9	3663	73	#line 3663 "NXCDefs.h"
+9	3730	73	#line 3730 "NXCDefs.h"
+9	3730	73	#line 3730 "NXCDefs.h"
+9	3731	73		mov __SetSensorMode_7qG2_port_7qG2_000_inline_SetSensorLight_inline_init, __SetSensorLight_7qG2_port_7qG2_000_inline_init
+9	3730	75	#line 3730 "NXCDefs.h"
+9	3730	75	#line 3730 "NXCDefs.h"
+9	3731	75		set __SetSensorMode_7qG2_mode_7qG2_000_inline_SetSensorLight_inline_init, 128
+9	3730	78	#line 3730 "NXCDefs.h"
+9	3676	78	#line 3676 "NXCDefs.h"
+9	3677	78		setin __SetSensorMode_7qG2_mode_7qG2_000_inline_SetSensorLight_inline_init, __SetSensorMode_7qG2_port_7qG2_000_inline_SetSensorLight_inline_init, 1
+9	3676	82	#line 3676 "NXCDefs.h"
+9	3731	82	#line 3731 "NXCDefs.h"
+9	3731	82	#line 3731 "NXCDefs.h"
+9	3732	82		mov __ResetSensor_7qG2_port_7qG2_000_inline_SetSensorLight_inline_init, __SetSensorLight_7qG2_port_7qG2_000_inline_init
+9	3731	84	#line 3731 "NXCDefs.h"
+9	3694	84	#line 3694 "NXCDefs.h"
+9	3695	84	#pragma macro 4
+9	3695	84		mov __ResetSensorPort, __SetSensorLight_7qG2_port_7qG2_000_inline_init
+9	3695	86		subcall __ResetSensorSubroutine, ____ResetSensorSubroutine_return
+9	5550	88	#line 5550 "NXCDefs.h"
+9	3694	88	#line 3694 "NXCDefs.h"
+9	3732	88	#line 3732 "NXCDefs.h"
+9	160	88	#line 160 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	161	88	#line 161 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	162	88		set integral, 0
+9	161	91	#line 161 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	161	91	#line 161 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	162	91	#line 162 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	163	91		set deltaOld, 0
+9	162	94	#line 162 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	162	94	#line 162 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	188	94	#line 188 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+9	189	94		subret __init_return
+10	190	0	#line 190 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	191	0		set __signed_stack_001waitForBtConnection, 0
+10	190	3	#line 190 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	190	3	#line 190 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	191	3		set __signed_stack_002waitForBtConnection, 56
+10	190	6	#line 190 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	190	6	#line 190 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	191	6		strcat __strbufwaitForBtConnection, __constStr0009
+10	191	10	#line 191 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	192	10		acquire __TextOutMutex
+10	191	11	#line 191 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	192	11		mov __TextOutArgs.Location.X, __signed_stack_001waitForBtConnection
+10	191	13	#line 191 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	192	13		mov __TextOutArgs.Location.Y, __signed_stack_002waitForBtConnection
+10	191	15	#line 191 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	192	15		set __TextOutArgs.Options, 0
+10	191	18	#line 191 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	192	18		mov __TextOutArgs.Text, __strbufwaitForBtConnection
+10	191	20	#line 191 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	192	20		syscall 13, __TextOutArgs
+10	191	23	#line 191 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	192	23		mov __D0waitForBtConnection, __TextOutArgs.Result
+10	191	26	#line 191 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	192	26		release __TextOutMutex
+10	191	27	#line 191 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	192	27	#line 192 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	193	27		set __D0waitForBtConnection, 1
+10	193	30	#line 193 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	194	30		tst 5, __zfwaitForBtConnection, __D0waitForBtConnection
+10	193	33	#line 193 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	194	33		brtst 4, __NXC_Label_701, __zfwaitForBtConnection
+10	194	36	#line 194 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	195	36		mov __waitForBtConnection_7qG2_value_7qG2_001, __constValNeg1
+10	194	38	#line 194 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	194	38	#line 194 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	195	38	#pragma macro 9
+10	195	38		acquire __MRMutex
+10	195	39		mov __MRArgs.QueueID, __constVal0
+10	195	41		mov __MRArgs.Remove, __constVal1
+10	195	43		set __RRNTmpVal, 0
+10	195	46		syscall 27, __MRArgs
+10	195	49		unflatten __RRNTmpVal, __RRNErr, __MRArgs.Message, __RRNTmpVal
+10	195	54		mov __waitForBtConnection_7qG2_value_7qG2_001, __RRNTmpVal
+10	195	56		mov __D0waitForBtConnection, __MRArgs.Result
+10	195	59		release __MRMutex
+10	5624	60	#line 5624 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	194	60	#line 194 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	194	60	#line 194 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	195	60	#line 195 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	196	60		set __Wait_7qG2_ms_7qG2_000_inline_waitForBtConnection, 500
+10	195	63	#line 195 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	7921	63	#line 7921 "NXCDefs.h"
+10	7922	63		wait2 NA, __Wait_7qG2_ms_7qG2_000_inline_waitForBtConnection
+10	7921	66	#line 7921 "NXCDefs.h"
+10	196	66	#line 196 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	197	66	#line 197 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	198	66		mov __D0waitForBtConnection, __waitForBtConnection_7qG2_value_7qG2_001
+10	201	68		brcmp 4, __NXC_Label_711, __constVal5, __D0waitForBtConnection
+10	202	72		brcmp 4, __NXC_Label_712, __constVal6, __D0waitForBtConnection
+10	203	76		brcmp 4, __NXC_Label_713, __constVal7, __D0waitForBtConnection
+10	204	80		brcmp 4, __NXC_Label_714, __constVal8, __D0waitForBtConnection
+10	205	84		brcmp 4, __NXC_Label_715, __constVal9, __D0waitForBtConnection
+10	206	88		jmp __NXC_Label_710
+10	199	90	#line 199 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	200	90	#line 200 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	201	90		subcall Line, __Line_return
+10	200	92	#line 200 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	201	92	#line 201 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	202	92		jmp __NXC_Label_710
+10	201	94	#line 201 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	202	94	#line 202 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	203	94	#line 203 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	204	94		subcall Right, __Right_return
+10	203	96	#line 203 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	204	96	#line 204 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	205	96		subcall Line, __Line_return
+10	204	98	#line 204 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	205	98	#line 205 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	206	98		jmp __NXC_Label_710
+10	205	100	#line 205 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	206	100	#line 206 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	207	100	#line 207 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	208	100		subcall Back, __Back_return
+10	207	102	#line 207 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	208	102	#line 208 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	209	102		subcall Line, __Line_return
+10	208	104	#line 208 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	209	104	#line 209 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	210	104		jmp __NXC_Label_710
+10	209	106	#line 209 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	210	106	#line 210 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	211	106	#line 211 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	212	106		subcall Left, __Left_return
+10	211	108	#line 211 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	212	108	#line 212 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	213	108		subcall Line, __Line_return
+10	212	110	#line 212 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	213	110	#line 213 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	214	110		jmp __NXC_Label_710
+10	213	112	#line 213 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	214	112	#line 214 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	215	112	#line 215 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	216	112		acquire sync
+10	215	113	#line 215 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	216	113	#line 216 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	217	113		mov __DU0waitForBtConnection, isCompleted
+10	217	115	#line 217 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	218	115		tst 5, __zfwaitForBtConnection, __DU0waitForBtConnection
+10	217	118	#line 217 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	218	118		brtst 4, __NXC_Label_718, __zfwaitForBtConnection
+10	218	121	#line 218 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	219	121		arrbuild __waitForBtConnection_7qG2_answer_7qG2_003, __constVal5
+10	218	125	#line 218 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	219	125		mov __ByteArrayToStr_7qG2_data_7qG2_000_inline_waitForBtConnection, __waitForBtConnection_7qG2_answer_7qG2_003
+10	18494	127	#line 18494 "NXCDefs.h"
+10	18495	127		arrtostr __strbufByteArrayToStr_inline_waitForBtConnection, __ByteArrayToStr_7qG2_data_7qG2_000_inline_waitForBtConnection
+10	18494	130	#line 18494 "NXCDefs.h"
+10	219	130	#line 219 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	220	130		mov __strretvalwaitForBtConnection, __strbufByteArrayToStr_inline_waitForBtConnection
+10	219	132	#line 219 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	220	132		strcat __strbufwaitForBtConnection, __strretvalwaitForBtConnection
+10	219	136	#line 219 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	220	136		mov __waitForBtConnection_7qG2_answerStr_7qG2_003, __strbufwaitForBtConnection
+10	219	138	#line 219 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	220	138	#pragma macro 13
+10	220	138		acquire __RemoteMutex
+10	220	139		mov __SRSTmpBuf, __DCMessageWritePacket
+10	220	141		replace __SRSTmpBuf, __SRSTmpBuf, __constVal2, __constVal0
+10	220	146		arrsize __SRSTmpLongVal, __waitForBtConnection_7qG2_answerStr_7qG2_003
+10	220	149		replace __SRSTmpBuf, __SRSTmpBuf, __constVal3, __SRSTmpLongVal
+10	220	154		arrbuild __SRSSendBuf, __SRSTmpBuf, __waitForBtConnection_7qG2_answerStr_7qG2_003
+10	220	159		acquire __CBTWMutex
+10	220	160		mov __CBTWArgs.Connection, __constVal0
+10	220	162		mov __CBTWArgs.Buffer, __SRSSendBuf
+10	220	164		syscall 29, __CBTWArgs
+10	220	167		mov __D0waitForBtConnection, __CBTWArgs.Result
+10	220	169		release __CBTWMutex
+10	220	170		release __RemoteMutex
+10	5731	171	#line 5731 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	219	171	#line 219 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	219	171	#line 219 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	223	171	#line 223 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	224	171		jmp __NXC_Label_719
+10	224	173	#line 224 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	225	173		arrbuild __waitForBtConnection_7qG2_answer_7qG2_003, __constVal6
+10	224	177	#line 224 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	225	177		mov __ByteArrayToStr_7qG2_data_7qG2_000_inline_waitForBtConnection, __waitForBtConnection_7qG2_answer_7qG2_003
+10	18494	179	#line 18494 "NXCDefs.h"
+10	18495	179		arrtostr __strbufByteArrayToStr_inline_waitForBtConnection, __ByteArrayToStr_7qG2_data_7qG2_000_inline_waitForBtConnection
+10	18494	182	#line 18494 "NXCDefs.h"
+10	225	182	#line 225 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	226	182		mov __strretvalwaitForBtConnection, __strbufByteArrayToStr_inline_waitForBtConnection
+10	225	184	#line 225 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	226	184		strcat __strbufwaitForBtConnection, __strretvalwaitForBtConnection
+10	225	188	#line 225 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	226	188		mov __waitForBtConnection_7qG2_answerStr_7qG2_003, __strbufwaitForBtConnection
+10	225	190	#line 225 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	226	190	#pragma macro 13
+10	226	190		acquire __RemoteMutex
+10	226	191		mov __SRSTmpBuf, __DCMessageWritePacket
+10	226	193		replace __SRSTmpBuf, __SRSTmpBuf, __constVal2, __constVal0
+10	226	198		arrsize __SRSTmpLongVal, __waitForBtConnection_7qG2_answerStr_7qG2_003
+10	226	201		replace __SRSTmpBuf, __SRSTmpBuf, __constVal3, __SRSTmpLongVal
+10	226	206		arrbuild __SRSSendBuf, __SRSTmpBuf, __waitForBtConnection_7qG2_answerStr_7qG2_003
+10	226	211		acquire __CBTWMutex
+10	226	212		mov __CBTWArgs.Connection, __constVal0
+10	226	214		mov __CBTWArgs.Buffer, __SRSSendBuf
+10	226	216		syscall 29, __CBTWArgs
+10	226	219		mov __D0waitForBtConnection, __CBTWArgs.Result
+10	226	221		release __CBTWMutex
+10	226	222		release __RemoteMutex
+10	5751	223	#line 5751 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	225	223	#line 225 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	225	223	#line 225 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	227	223	#line 227 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	228	223	#line 228 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	229	223		release sync
+10	228	224	#line 228 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	229	224	#line 229 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	229	224	#line 229 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	231	224	#line 231 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	233	224	#line 233 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	234	224		jmp __NXC_Label_700
+10	233	226	#line 233 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+10	234	226		exit -1, -1
+11	0	0		subret __waitForBtConnection_Spawner_return
+12	0	0		exit 0, 1
+13	242	0	#line 242 "D:\sandbox\robots-bt\src\main\nxc\transporter.nxc"
+13	243	0		subret ____initialize_global_data_return
+#CLUMPS
+Clump	Name	Offset	File
+0	main	0	D:\sandbox\robots-bt\src\main\nxc\transporter.nxc
+1	__RotateMotor5	9	NXTDefs.h
+2	__ResetSensorSubroutine	178	NXTDefs.h
+3	PID	191	D:\sandbox\robots-bt\src\main\nxc\transporter.nxc
+4	Line	357	D:\sandbox\robots-bt\src\main\nxc\transporter.nxc
+5	Stabilize	503	D:\sandbox\robots-bt\src\main\nxc\transporter.nxc
+6	Right	599	D:\sandbox\robots-bt\src\main\nxc\transporter.nxc
+7	Left	672	D:\sandbox\robots-bt\src\main\nxc\transporter.nxc
+8	Back	746	D:\sandbox\robots-bt\src\main\nxc\transporter.nxc
+9	init	939	D:\sandbox\robots-bt\src\main\nxc\transporter.nxc
+10	waitForBtConnection	1035	D:\sandbox\robots-bt\src\main\nxc\transporter.nxc
+11	__waitForBtConnection_Returner	1264	D:\sandbox\robots-bt\src\main\nxc\transporter.nxc
+12	__waitForBtConnection_Spawner	1266	D:\sandbox\robots-bt\src\main\nxc\transporter.nxc
+13	__initialize_global_data	1269	D:\sandbox\robots-bt\src\main\nxc\transporter.nxc

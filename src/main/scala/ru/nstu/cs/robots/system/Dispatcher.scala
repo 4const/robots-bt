@@ -19,15 +19,15 @@ object Dispatcher {
   case class TransporterReady(id: Int)
 }
 
-class Dispatcher(map: TransportMap, sorterId: Int, transportersIds: Map[Int, Int]) extends Actor {
+class Dispatcher(map: TransportMap, sorterId: Int, transporterPorts: Map[Int, Int]) extends Actor {
 
   val sorter = context.actorOf(Sorter.props(sorterId))
   val transporters: Map[Int, ActorRef] =
-    transportersIds.map { case (port, parking) =>
+    transporterPorts.map { case (port, parking) =>
       port -> context.actorOf(Transporter.props(port, map.parkingPorts(parking).direction))
     }
 
-  var systemState = new SystemState(transportersIds.keys.toSeq, map)
+  var systemState = new SystemState(transporterPorts.mapValues(map.parkingPorts(_)), map)
 
   override def receive: Receive = {
     case Balls(balls) =>
