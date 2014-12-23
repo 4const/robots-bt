@@ -61,7 +61,8 @@ class SystemStateTest {
 
     val tasks = system.transporterReady(id2)
 
-    assertEquals(1, tasks.size)
+    assertEquals(2, tasks.size)
     assertEquals(QMove(8, 7, Right), tasks(id1))
+    assertEquals(QMove(16, 15, Left), tasks(id2))
   }
 }

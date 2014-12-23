@@ -36,9 +36,28 @@ class SystemState(
   }
 
   def transporterReady(id: Int): Map[Int, TransporterQueueTask] = {
+    sorterState = refreshBallsCount(id)
     stayTransporter(id)
 
     nextTasks()
+  }
+
+  private def refreshBallsCount(transporterId: Int): SorterState = {
+    val task = transportersState(transporterId).currentTask
+    task match {
+      case QMove(_, to, _) =>
+        transportMap.sorterPorts
+          .find {
+            case (_, p) => p.point == to
+          } match {
+            case Some((c, p)) =>
+              val queues = sorterState.queues
+              SorterState(queues.updated(c, Math.max(queues(c), 0)))
+            case _ => sorterState
+          }
+
+      case _ => sorterState
+    }
   }
 
   private def nextTasks(): Map[Int, TransporterQueueTask] = {
@@ -79,14 +98,8 @@ class SystemState(
 
   private def assignGlobalTask(freeTransporters: Map[Int, TransporterState]): Map[Int, TransporterQueueTask] = {
     def refreshState(color: Color, sorterState: SorterState): SorterState = {
-      SorterState(
-        sorterState.queues.map { case (c, count) =>
-          if (c == color) {
-            c -> Math.max(count - SorterParameters.MAX_PACKAGE, 0)
-          } else {
-            c -> count
-          }
-        })
+      val queues = sorterState.queues
+      SorterState(queues.updated(color, queues(color) - SorterParameters.MAX_PACKAGE))
     }
 
     def makeTask(color: Color, count: Int)(transporterId: Int, state: TransporterState)(result: Map[Int, TransporterQueueTask]): Map[Int, TransporterQueueTask] = {
@@ -110,7 +123,7 @@ class SystemState(
               case NoColor => None
               case _ =>
                 val count = sorterState.queues(lastColor)
-                if (count != 0) {
+                if (count > 0) {
                   Some(makeTask(lastColor, count)(transporterId, state)(result))
                 } else {
                   None
