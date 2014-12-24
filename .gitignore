@@ -2,6 +2,9 @@
 *.iml
 .idea/
 
+*.bak
+*.sym
+
 # Logs and databases #
 *.log
 *.sql
