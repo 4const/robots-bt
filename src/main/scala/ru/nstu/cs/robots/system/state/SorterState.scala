@@ -1,8 +1,9 @@
 package ru.nstu.cs.robots.system.state
 
 
-case class SorterState(queues: Map[Color, Int] =
-  Map(Red -> 0, Green -> 0, Blue -> 0))
+case class SorterState(
+  lastColor: Color,
+  queues: Map[Color, Int] = Map(Red -> 0, Green -> 0, Blue -> 0))
 
 trait Color
 

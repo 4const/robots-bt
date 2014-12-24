@@ -13,16 +13,15 @@ class SystemStateTest {
     val id = 1
 
     val map = TransportMaps(1)
-    val sorterState = SorterState(Map(Red -> 1, Green -> 0, Blue -> 0))
+    val sorterState = SorterState(NoColor, Map(Red -> 1, Green -> 0, Blue -> 0))
 
     val start = map.parkingPorts.head
     val transporters = Map(
       id -> TransporterState(QStay(start.point, start.direction), Seq.empty))
 
-    val system = new SystemState(sorterState, transporters, NoColor, map)
+    val system = new SystemState(sorterState, transporters, map)
 
-    val tasks = system.transporterReady(1)
-
+    val tasks = system.transporterReady(1).tasks
     assertEquals(QMove(start.point, 7, Right), tasks(id))
   }
 
@@ -32,16 +31,15 @@ class SystemStateTest {
     val id2 = 2
 
     val map = TransportMaps(1)
-    val sorterState = SorterState(Map(Red -> 1, Green -> 0, Blue -> 0))
+    val sorterState = SorterState(NoColor, Map(Red -> 1, Green -> 0, Blue -> 0))
 
     val transporters = Map(
       id1 -> TransporterState(QStay(2, Top), Seq(QMove(2, 1, Bottom))),
       id2 -> TransporterState(QMove(5, 3, Left), Seq(QMove(3, 1, Left))))
 
-    val system = new SystemState(sorterState, transporters, NoColor, map)
+    val system = new SystemState(sorterState, transporters, map)
 
-    val tasks = system.transporterReady(id2)
-
+    val tasks = system.transporterReady(id2).tasks
     assertEquals(QMove(2, 1, Bottom), tasks(id1))
   }
 
@@ -51,16 +49,15 @@ class SystemStateTest {
     val id2 = 2
 
     val map = TransportMaps(1)
-    val sorterState = SorterState(Map(Red -> 3, Green -> 1, Blue -> 0))
+    val sorterState = SorterState(NoColor, Map(Red -> 3, Green -> 1, Blue -> 0))
 
     val transporters = Map(
       id1 -> TransporterState(QStay(8, Right), Seq.empty),
       id2 -> TransporterState(QStay(16, Left), Seq.empty))
 
-    val system = new SystemState(sorterState, transporters, NoColor, map)
+    val system = new SystemState(sorterState, transporters, map)
 
-    val tasks = system.transporterReady(id2)
-
+    val tasks = system.transporterReady(id2).tasks
     assertEquals(2, tasks.size)
     assertEquals(QMove(8, 7, Right), tasks(id1))
     assertEquals(QMove(16, 15, Left), tasks(id2))
