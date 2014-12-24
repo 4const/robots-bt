@@ -31,10 +31,12 @@ class Dispatcher(map: TransportMap, sorterId: Int, transporterPorts: Map[Int, In
 
   override def receive: Receive = {
     case Balls(balls) =>
-      dispatchNextTasks(systemState.addBalls(balls))
+      systemState = systemState.addBalls(balls)
+      dispatchNextTasks(systemState.tasks)
 
     case TransporterReady(id) =>
-      dispatchNextTasks(systemState.transporterReady(id))
+      systemState = systemState.transporterReady(id)
+      dispatchNextTasks(systemState.tasks)
   }
 
 
