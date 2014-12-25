@@ -12,8 +12,10 @@ object Application extends App {
 
     val map = TransportMaps(1)
     val transporters: Map[Int, Int] = Map(
-      3 -> 0,
-      13 -> 1
+        3 -> 0
+//      3 -> 0,
+//      13 -> 1
+//      11 -> 1
     )
     system.actorOf(Dispatcher.props(map, 9, transporters), "dispatcher")
   }

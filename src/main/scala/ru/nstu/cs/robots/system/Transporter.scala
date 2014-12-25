@@ -35,24 +35,26 @@ class Transporter(id: Int, lookDirection: Direction) extends Actor {
 
   override def receive: Receive = {
     case Do(task: TransporterRealTask) =>
-      btConnector.send(makeMessage(task))
-      current = task
+      if (!task.isInstanceOf[RStay]) {
+        btConnector.send(makeMessage(task))
+        current = task
+      }
 
     case Ask =>
-      log.info("Read Transporter {} state", id)
+//      log.info("Read Transporter {} state", id)
       btConnector.send(askMessage)
 
-      val isComplete = mapAnswer(btConnector.read(1))
-      log.info("Transporter {} ready? - {}", id, isComplete)
+      val isReady = mapAnswer(btConnector.read(1))
+      log.info("Transporter {} ready? - {}", id, isReady)
 
-      if (isComplete) {
+      if (isReady) {
         context.parent ! TransporterReady(id)
       }
 
       scheduleAsk(5 seconds)
   }
 
-  scheduleAsk(5 seconds)
+  scheduleAsk(15 seconds)
 
   private def scheduleAsk(delay: FiniteDuration = 1.seconds): Unit = {
     context.system.scheduler.scheduleOnce(delay, self, Ask)
@@ -66,6 +68,7 @@ class Transporter(id: Int, lookDirection: Direction) extends Actor {
       case RStay(_) => 2
       case RMove(start, _) =>
         val relative = current.endDirection.relativeDirection(start)
+        log.info("Transporter {} current state {}", id, current)
         log.info("make Transporter {} do {} - relative: {}", id, task, relative)
 
         relative match {

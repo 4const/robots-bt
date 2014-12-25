@@ -16,15 +16,16 @@ object SystemState {
 class SystemState(
   private val sorterState: SorterState,
   private val transportersState: Map[Int, TransporterState],
+  private val transportersTasks: Map[Int, TransporterQueueTask],
   private val transportMap: TransportMap) {
 
   def this(transporters: Map[Int, Port], transportMap: TransportMap) = {
-    this(SorterState(NoColor), initStates(transporters, transportMap), transportMap)
+    this(SorterState(NoColor), initStates(transporters, transportMap), Map(), transportMap)
   }
 
   val roadMap = new RoadMap(transportMap.crossroads)
 
-  def tasks: Map[Int, TransporterQueueTask] = transportersState.mapValues(_.currentTask)
+  def tasks: Map[Int, TransporterQueueTask] = transportersTasks
 
   def addBalls(balls: Map[Color, Int]): SystemState = {
     val updatedSorter = sorterState.copy(queues = sorterState.queues.map { case (c, count) => c -> (count + balls(c)) })
@@ -57,30 +58,33 @@ class SystemState(
   }
 
   private def nextState(sorterState: SorterState, transportersState: Map[Int, TransporterState]): SystemState = {
-    val (awaiting, free) = transportersState
-      .filterNot { case (_, state) => !state.currentTask.isInstanceOf[QStay] && state.queue.nonEmpty }
+    val busy = transportersState
+      .filter { case (_, state) => !state.currentTask.isInstanceOf[QStay] && state.queue.nonEmpty }
+    val (awaiting, free) = (transportersState -- busy.keys)
       .partition { case (_, state) => state.currentTask.isInstanceOf[QStay] && state.queue.nonEmpty }
 
     val awaitingNextState = awaiting.foldLeft(Map[Int, TransporterState]()) {
-      case (result, (id, state)) => result + (id -> nextTransporterState(id, state, awaiting, result))
+      case (result, (id, state)) => result + (id -> nextTransporterState(id, state, busy, awaiting, result))
     }
     val (nextSState, nextTStates) = free.foldLeft(sorterState, awaitingNextState) {
       case ((s, t), (id, state)) =>
-        val (newSorterState, newTransporterState) = assignGlobalTask(id, state, s, free, t)
+        val (newSorterState, newTransporterState) = assignGlobalTask(id, state, s, busy, free, t)
         (newSorterState, t + (id -> newTransporterState))
     }
 
-    new SystemState(nextSState, nextTStates, transportMap)
+    new SystemState(nextSState, busy ++ nextTStates, nextTStates.mapValues(_.currentTask), transportMap)
   }
 
   private def nextTransporterState(transporterId: Int, state: TransporterState,
+                                   busyTransporters: Map[Int, TransporterState],
                                    awaitingTransporters: Map[Int, TransporterState],
                                    refreshedTransporters: Map[Int, TransporterState]): TransporterState = {
     val task = state.currentTask
     val queue = state.queue
 
     val (nextTask, nextQueue) = queue.headOption match {
-      case Some(topTask) if canDo(transporterId, topTask.endPoint, awaitingTransporters, refreshedTransporters) =>
+      case Some(topTask)
+        if canDo(transporterId, topTask.endPoint, busyTransporters,awaitingTransporters, refreshedTransporters) =>
         val nextQueue = if (queue.isEmpty) Seq() else queue.tail
         (topTask, nextQueue)
       case _ =>
@@ -92,6 +96,7 @@ class SystemState(
   }
 
   private def canDo(transporterId: Int, nextPosition: Int,
+                    busyTransporters: Map[Int, TransporterState],
                     notRefreshedTransporters: Map[Int, TransporterState],
                     refreshedTransporters: Map[Int, TransporterState]): Boolean = {
     def soonBeOccupied(state: TransporterState): Boolean = {
@@ -101,19 +106,24 @@ class SystemState(
         transportMap.packerPorts.exists { case (_, port) => port.point == end}) ||
         end == nextPosition
     }
-
-    notRefreshedTransporters
+    val busyed = busyTransporters
+      .find { case (_, state) => soonBeOccupied(state) }
+      .isEmpty
+    val notRefreshed = notRefreshedTransporters
       .filterNot { case (id, _) => refreshedTransporters.contains(id) || id == transporterId }
       .find { case (_, state) => soonBeOccupied(state) }
-      .isEmpty &&
-    refreshedTransporters
+      .isEmpty
+    val refreshed = refreshedTransporters
       .filterNot { case (id, _) => id == transporterId }
       .find { case (_, state) => soonBeOccupied(state) }
       .isEmpty
+
+    busyed && notRefreshed && refreshed
   }
 
   private def assignGlobalTask(transporterId: Int, state: TransporterState,
                                sorterState: SorterState,
+                               busyTransporters: Map[Int, TransporterState],
                                freeTransporters: Map[Int, TransporterState],
                                refreshedTransporters: Map[Int, TransporterState]): (SorterState, TransporterState) = {
     def assignQueue(color: Color, count: Int, transporterId: Int, state: TransporterState): (SorterState, TransporterState) = {
@@ -121,7 +131,7 @@ class SystemState(
 
       val queue = createTaskQueue(color, currentTask.endPoint, transporterId, freeTransporters ++ refreshedTransporters)
       val firstTask = queue.head
-      val nextTState = if (canDo(transporterId, firstTask.endPoint, freeTransporters, refreshedTransporters)) {
+      val nextTState = if (canDo(transporterId, firstTask.endPoint, busyTransporters, freeTransporters, refreshedTransporters)) {
         TransporterState(firstTask, queue.tail)
       } else {
         TransporterState(QStay(currentTask.endPoint, currentTask.lookAt), queue)
@@ -175,9 +185,9 @@ class SystemState(
 
     makeQueue(toSorterPoints)
       .:+(QStay(sorterPort.point, sorterPort.direction)) ++
-      makeQueue(toPackerPoints)
-        .:+(QDrop(packerPort.point, packerPort.direction)) ++
-      makeQueue(toParkingPoints)
+    makeQueue(toPackerPoints)
+      .:+(QDrop(packerPort.point, packerPort.direction)) ++
+    makeQueue(toParkingPoints)
   }
 
   private def isParkingFree(transporterId: Int, parkingPort: Int, transportersState: Map[Int, TransporterState]): Boolean = {
