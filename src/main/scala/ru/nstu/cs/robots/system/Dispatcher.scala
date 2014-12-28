@@ -11,23 +11,26 @@ import ru.nstu.cs.robots.system.task._
 
 object Dispatcher {
 
-  def props(map: TransportMap, sorterPort: Int, transportersPortPoint: Map[Int, Int]): Props =
-    Props(new Dispatcher(map, sorterPort, transportersPortPoint))
+  def props(map: TransportMap, sorterParams: SorterInitParams, transportersParams: Seq[TransporterInitParams]): Props =
+    Props(new Dispatcher(map, sorterParams, transportersParams))
 
   case class Balls(balls: Map[Color, Int])
 
   case class TransporterReady(id: Int)
 }
 
-class Dispatcher(map: TransportMap, sorterId: Int, transporterPorts: Map[Int, Int]) extends Actor {
+class Dispatcher(map: TransportMap, sorterParams: SorterInitParams, transportersParams: Seq[TransporterInitParams]) extends Actor {
 
-  val sorter = context.actorOf(Sorter.props(sorterId))
+  val sorter = context.actorOf(Sorter.props(sorterParams.port, sorterParams.mock))
   val transporters: Map[Int, ActorRef] =
-    transporterPorts.map { case (port, parking) =>
-      port -> context.actorOf(Transporter.props(port, map.parkingPorts(parking).direction))
+    transportersParams.map {
+      case TransporterInitParams(port, parking, mock) =>
+        port -> context.actorOf(Transporter.props(port, map.parkingPorts(parking).direction, mock))
     }
+    .toMap
 
-  var systemState = new SystemState(transporterPorts.mapValues(map.parkingPorts(_)), map)
+  var systemState = new SystemState(
+    transportersParams.map(params => params.port -> map.parkingPorts(params.parking)).toMap, map)
 
   override def receive: Receive = {
     case Balls(balls) =>

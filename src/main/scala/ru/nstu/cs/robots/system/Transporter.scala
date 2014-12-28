@@ -2,8 +2,9 @@ package ru.nstu.cs.robots.system
 
 import akka.actor.{Actor, Props}
 import akka.event.Logging
-import ru.nstu.cs.robots.bluetooth.{BtConnector, Message}
 import ru.nstu.cs.robots.map._
+import ru.nstu.cs.robots.nxt.connection._
+import ru.nstu.cs.robots.nxt.connection.mock.{NxtConnectorTransporterMock, NxtConnectorSorterMock}
 import ru.nstu.cs.robots.system.Dispatcher.TransporterReady
 import ru.nstu.cs.robots.system.Transporter._
 import ru.nstu.cs.robots.system.task._
@@ -13,23 +14,27 @@ import scala.concurrent.duration._
 
 object Transporter {
 
-  def props(id: Int, lookDirection: Direction): Props = Props(new Transporter(id, lookDirection))
+  def props(id: Int, lookDirection: Direction, mock: Boolean): Props = Props(new Transporter(id, lookDirection, mock))
 
   case object Ask
   case class Do(task: TransporterRealTask)
-
-  val askMessage = new Message(Array[Byte](0x00, 0x09, 0x00, 0x05, 0x09, 0x00, 0x00, 0x00))
-  val answerLength = 1
+  
   val completeAnswer: Byte = 5
 
-  def taskMessage(n: Byte) = new Message(Array[Byte](0x00, 0x09, 0x00, 0x05, n, 0x00, 0x00, 0x00))
+  private def getConnector(id: Int, mock: Boolean): NxtConnector = {
+    if (mock) {
+      new NxtConnectorTransporterMock
+    } else {
+      new NxtConnectorImpl(id)
+    }
+  }
 }
 
-class Transporter(id: Int, lookDirection: Direction) extends Actor {
+class Transporter(id: Int, lookDirection: Direction, mock: Boolean) extends Actor {
 
   val log = Logging(context.system, this)
 
-  val btConnector = new BtConnector(id)
+  val connector = getConnector(id, mock)
 
   var current: TransporterRealTask = RStay(lookDirection)
 
@@ -41,15 +46,15 @@ class Transporter(id: Int, lookDirection: Direction) extends Actor {
     case Do(task: TransporterRealTask) =>
       val message = makeMessage(task)
       message.foreach { case m =>
-        btConnector.send(m)
+        connector.send(m)
         current = task
       }
 
     case Ask =>
 //      log.info("Read Transporter {} state", id)
-      btConnector.send(askMessage)
+      connector.send(AskMessage)
 
-      val isReady = mapAnswer(btConnector.read(1))
+      val isReady = mapAnswer(connector.read(1))
       log.info("Transporter {} ready? - {}", id, isReady)
 
       if (isReady) {
@@ -67,24 +72,25 @@ class Transporter(id: Int, lookDirection: Direction) extends Actor {
 
   private def mapAnswer(bytes: Array[Byte]): Boolean = bytes(0) == completeAnswer
 
-  private def makeMessage(task: TransporterRealTask):Option[Message] = {
-    val keyByte: Option[Byte] = task match {
-      case RDrop(_) => Some(3)
+  private def makeMessage(task: TransporterRealTask):Option[NxtMessage] = {
+    log.info("Transporter {} current state {}", id, current)
+    log.info("make Transporter {} do {}", id, task)
+
+    task match {
+      case RDrop(_) =>
+        Some(DropMessage)
       case RMove(start, _) =>
         val relative = current.endDirection.relativeDirection(start)
-        log.info("Transporter {} current state {}", id, current)
-        log.info("make Transporter {} do {} - relative: {}", id, task, relative)
+        log.info("Transporter {} move relative: {}", id, relative)
 
         Some(
           relative match {
-            case Top => 5
-            case Right => 6
-            case Bottom => 7
-            case Left => 8
+            case Top => ForwardMessage
+            case Right => RightwardMessage
+            case Bottom => BackwardMessage
+            case Left => LeftwardMessage
           })
       case _ => None
     }
-
-    keyByte.map(taskMessage)
   }
 }

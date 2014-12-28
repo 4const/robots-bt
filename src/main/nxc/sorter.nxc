@@ -46,7 +46,7 @@ task waitForBtConnection() {
     long value = -1;
     ReceiveRemoteNumber(MAILBOX1, 1, value);
     Wait(500);
-    if (value == 3)
+    if (value == 9)
     {
       Acquire(sync);
       string answer = ByteArrayToStr(numbersOfBalls);

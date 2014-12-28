@@ -1,7 +1,7 @@
 package ru.nstu.cs.robots
 
 import akka.actor.ActorSystem
-import ru.nstu.cs.robots.system.Dispatcher
+import ru.nstu.cs.robots.system.{TransporterInitParams, SorterInitParams, Dispatcher}
 import ru.nstu.cs.robots.system.environment.TransportMaps
 
 
@@ -11,12 +11,15 @@ object Application extends App {
     val system = ActorSystem("system")
 
     val map = TransportMaps(1)
-    val transporters: Map[Int, Int] = Map(
-        3 -> 0
-//      3 -> 0,
+
+    val sorterInitParams = new SorterInitParams(9, true)
+    val transportersInitParams = Seq(
+      new TransporterInitParams(3, 0, true)
+//      new TransporterInitParams(13, 1, true)
 //      13 -> 1
 //      11 -> 1
     )
-    system.actorOf(Dispatcher.props(map, 9, transporters), "dispatcher")
+
+    system.actorOf(Dispatcher.props(map, sorterInitParams, transportersInitParams), "dispatcher")
   }
 }

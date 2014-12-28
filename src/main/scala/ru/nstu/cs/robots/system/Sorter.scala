@@ -1,7 +1,8 @@
 package ru.nstu.cs.robots.system
 
 import akka.actor.{Props, Actor}
-import ru.nstu.cs.robots.bluetooth.{Message, BtConnector}
+import ru.nstu.cs.robots.nxt.connection.mock.{NxtConnectorSorterMock, NxtConnectorTransporterMock}
+import ru.nstu.cs.robots.nxt.connection.{NxtConnector, AskMessage, NxtConnectorImpl}
 import ru.nstu.cs.robots.system.Sorter._
 import ru.nstu.cs.robots.system.Dispatcher._
 import ru.nstu.cs.robots.system.state._
@@ -13,34 +14,42 @@ import akka.event.Logging
 
 object Sorter {
 
-  def props(id: Int): Props = Props(new Sorter(id))
+  def props(id: Int, mock: Boolean): Props = Props(new Sorter(id, mock))
 
   case object Ask
 
-  val askMessage = new Message(Array[Byte](0x00, 0x09, 0x00, 0x05, 0x03, 0x00, 0x00, 0x00))
-  val answerLength = 3
+
+  private val answerLength = 3
+
+  private def getConnector(id: Int, mock: Boolean): NxtConnector = {
+    if (mock) {
+      new NxtConnectorSorterMock
+    } else {
+      new NxtConnectorImpl(id)
+    }
+  }
 }
 
-class Sorter(id: Int) extends Actor {
+class Sorter(id: Int, mock: Boolean) extends Actor {
 
   val log = Logging(context.system, this)
 
-  val btConnector = new BtConnector(id)
+  val connector = getConnector(id, mock)
 
   override def receive: Receive = {
     case Ask =>
-      log.info("Read sorter state")
-      btConnector.send(askMessage)
-      val balls = mapAnswer(btConnector.read(answerLength))
+//      log.info("Read sorter state")
+      connector.send(AskMessage)
+      val balls = mapAnswer(connector.read(answerLength))
 
       log.info("Sorter has {}", balls)
       if (balls.exists(_._2 != 0)) {
         context.parent ! Balls(balls)
       }
-      scheduleAsk(10 seconds)
+      scheduleAsk(10.seconds)
   }
 
-  scheduleAsk(10 seconds)
+  scheduleAsk(10.seconds)
 
   private def scheduleAsk(delay: FiniteDuration = 1.seconds): Unit = {
     context.system.scheduler.scheduleOnce(delay, self, Ask)
