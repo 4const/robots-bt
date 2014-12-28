@@ -33,10 +33,15 @@ class Transporter(id: Int, lookDirection: Direction) extends Actor {
 
   var current: TransporterRealTask = RStay(lookDirection)
 
+
+  /**
+   * Transporter always ignore RStay message
+   */
   override def receive: Receive = {
     case Do(task: TransporterRealTask) =>
-      if (!task.isInstanceOf[RStay]) {
-        btConnector.send(makeMessage(task))
+      val message = makeMessage(task)
+      message.foreach { case m =>
+        btConnector.send(m)
         current = task
       }
 
@@ -51,10 +56,10 @@ class Transporter(id: Int, lookDirection: Direction) extends Actor {
         context.parent ! TransporterReady(id)
       }
 
-      scheduleAsk(5 seconds)
+      scheduleAsk(5.seconds)
   }
 
-  scheduleAsk(15 seconds)
+  scheduleAsk(15.seconds)
 
   private def scheduleAsk(delay: FiniteDuration = 1.seconds): Unit = {
     context.system.scheduler.scheduleOnce(delay, self, Ask)
@@ -62,23 +67,24 @@ class Transporter(id: Int, lookDirection: Direction) extends Actor {
 
   private def mapAnswer(bytes: Array[Byte]): Boolean = bytes(0) == completeAnswer
 
-  private def makeMessage(task: TransporterRealTask): Message = {
-    val keyByte: Byte = task match {
-      case RDrop(_) => 3
-      case RStay(_) => 2
+  private def makeMessage(task: TransporterRealTask):Option[Message] = {
+    val keyByte: Option[Byte] = task match {
+      case RDrop(_) => Some(3)
       case RMove(start, _) =>
         val relative = current.endDirection.relativeDirection(start)
         log.info("Transporter {} current state {}", id, current)
         log.info("make Transporter {} do {} - relative: {}", id, task, relative)
 
-        relative match {
-          case Top => 5
-          case Right => 6
-          case Bottom => 7
-          case Left => 8
-        }
+        Some(
+          relative match {
+            case Top => 5
+            case Right => 6
+            case Bottom => 7
+            case Left => 8
+          })
+      case _ => None
     }
 
-    taskMessage(keyByte)
+    keyByte.map(taskMessage)
   }
 }

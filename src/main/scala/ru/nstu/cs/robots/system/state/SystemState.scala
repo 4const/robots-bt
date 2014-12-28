@@ -72,12 +72,8 @@ class SystemState(
         (newSorterState, t + (id -> newTransporterState))
     }
 
-    val nextTasks = nextTStates.foldLeft(Map[Int, TransporterQueueTask]()) {
-      case (res, (id, state)) => state.currentTask match {
-        case QStay(_, _) => res
-        case _ => res + (id -> state.currentTask)
-      }
-    }
+    val nextTasks = nextTStates.mapValues(_.currentTask)
+
     new SystemState(nextSState, busy ++ nextTStates, nextTasks, transportMap)
   }
 
