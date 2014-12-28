@@ -2,10 +2,14 @@ name := "robots-bt"
 
 version := "1.0"
 
-scalaVersion := "2.11.4"
+scalaVersion := "2.10.3"
 
-libraryDependencies += "com.typesafe.akka" % "akka-contrib_2.11" % "2.3.7"
+libraryDependencies ++= Seq(
+  "com.typesafe.akka" %% "akka-contrib" % "2.3.8",
+  "com.twitter" %% "finatra" % "1.5.3",
+  "org.scream3r" % "jssc" % "2.8.0",
+  "junit" % "junit" % "4.11" % "test"
+)
 
-libraryDependencies += "junit" % "junit" % "4.11"
-
-libraryDependencies += "org.scream3r" % "jssc" % "2.8.0"
+resolvers +=
+  "Twitter" at "http://maven.twttr.com"
