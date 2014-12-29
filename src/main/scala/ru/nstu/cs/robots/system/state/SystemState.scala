@@ -103,11 +103,17 @@ class SystemState(
     def soonBeOccupied(state: TransporterState): Boolean = {
       val end = state.currentTask.endPoint
       state.queue.nonEmpty && (
-        transportMap.sorterPorts.exists { case (_, port) => port.point == end} ||
-        transportMap.packerPorts.exists { case (_, port) => port.point == end}) ||
+        transportMap.sorterPorts.exists { case (_, port) =>
+          val point = port.point
+          point == end && transportMap.crossroads(nextPosition).links.exists(_.to == point)
+        } ||
+        transportMap.packerPorts.exists { case (_, port) =>
+          val point = port.point
+          point == end && transportMap.crossroads(nextPosition).links.exists(_.to == point)
+        }) ||
         end == nextPosition
     }
-    val busyed = busyTransporters
+    val busied = busyTransporters
       .find { case (_, state) => soonBeOccupied(state) }
       .isEmpty
     val notRefreshed = notRefreshedTransporters
@@ -119,7 +125,7 @@ class SystemState(
       .find { case (_, state) => soonBeOccupied(state) }
       .isEmpty
 
-    busyed && notRefreshed && refreshed
+    busied && notRefreshed && refreshed
   }
 
   private def assignGlobalTask(transporterId: Int, state: TransporterState,
@@ -165,14 +171,15 @@ class SystemState(
 
   private def createTaskQueue(color: Color, startPoint: Int, transporterId: Int,
                               transportersState: Map[Int, TransporterState]): Seq[TransporterQueueTask] = {
-    val sorterPort = transportMap.sorterPorts(color)
-    val packerPort = transportMap.packerPorts(color)
-    val parkingPort =
-      transportMap.parkingPorts.find { case port => isParkingFree(transporterId, port.point, transportersState) }.get
-
-    val toSorterPoints = roadMap.getWay(startPoint, sorterPort.point)
-    val toPackerPoints = roadMap.getWay(sorterPort.point, packerPort.point)
-    val toParkingPoints = roadMap.getWay(packerPort.point, parkingPort.point)
+    def isParkingFree(transporterId: Int, parkingPort: Int, transportersState: Map[Int, TransporterState]): Boolean = {
+      transportersState
+        .find { case (id, state) =>
+        id != transporterId &&
+          state.queue.lastOption.map(_.endPoint == parkingPort)
+            .getOrElse(state.currentTask.endPoint == parkingPort)
+      }
+        .isEmpty
+    }
 
     def makeQueue(points: Seq[Point]): Seq[TransporterQueueTask] = {
       points
@@ -184,6 +191,15 @@ class SystemState(
       }
     }
 
+    val sorterPort = transportMap.sorterPorts(color)
+    val packerPort = transportMap.packerPorts(color)
+    val parkingPort =
+      transportMap.parkingPorts.find { case port => isParkingFree(transporterId, port.point, transportersState) }.get
+
+    val toSorterPoints = roadMap.getWay(startPoint, sorterPort.point)
+    val toPackerPoints = roadMap.getWay(sorterPort.point, packerPort.point)
+    val toParkingPoints = roadMap.getWay(packerPort.point, parkingPort.point)
+
     makeQueue(toSorterPoints)
       .:+(QStay(sorterPort.point, sorterPort.direction)) ++
     makeQueue(toPackerPoints)
@@ -191,19 +207,9 @@ class SystemState(
     makeQueue(toParkingPoints)
   }
 
-  private def isParkingFree(transporterId: Int, parkingPort: Int, transportersState: Map[Int, TransporterState]): Boolean = {
-    transportersState
-      .find { case (id, state) =>
-        id != transporterId &&
-        state.queue.lastOption.map(_.endPoint == parkingPort)
-          .getOrElse(state.currentTask.endPoint == parkingPort)
-      }
-      .isEmpty
-  }
-
   override def toString: String = {
     sorterState.toString + "\n" +
-    transportersState.toString + "\n" +
+    transportersState.mapValues(_.toString + "\n") + "\n" +
     tasks + "\n"
   }
 }

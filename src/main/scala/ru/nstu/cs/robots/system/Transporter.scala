@@ -36,6 +36,7 @@ class Transporter(id: Int, lookDirection: Direction, mock: Boolean) extends Acto
 
   val connector = getConnector(id, mock)
 
+  var logState: TransporterRealTask = RStay(lookDirection)
   var current: TransporterRealTask = RStay(lookDirection)
 
   implicit val executor = akka.dispatch.ExecutionContexts.global
@@ -50,6 +51,7 @@ class Transporter(id: Int, lookDirection: Direction, mock: Boolean) extends Acto
         connector.send(m)
         current = task
       }
+      logState = task
 
     case Ask =>
 //      log.info("Read Transporter {} state", id)
@@ -74,7 +76,7 @@ class Transporter(id: Int, lookDirection: Direction, mock: Boolean) extends Acto
   private def mapAnswer(bytes: Array[Byte]): Boolean = bytes(0) == completeAnswer
 
   private def makeMessage(task: TransporterRealTask):Option[NxtMessage] = {
-    log.info("Transporter {} current state {}", id, current)
+    log.info("Transporter {} current state {}", id, logState)
     log.info("make Transporter {} do {}", id, task)
 
     task match {

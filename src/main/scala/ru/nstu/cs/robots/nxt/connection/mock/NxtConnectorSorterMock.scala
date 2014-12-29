@@ -7,7 +7,7 @@ import scala.util.Random
 
 class NxtConnectorSorterMock extends NxtConnector {
 
-  val maxBalls = 1
+  val maxBalls = 0
   var currentlySorted = 0
 
   var lastBallDropTime: Long = 0

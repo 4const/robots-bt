@@ -197,17 +197,21 @@ task waitForBtConnection()
     switch(value)
     {
       case 5:
+        PlayTone(700,100);
         Line();
         break;
       case 6:
+        PlayTone(700,100);
         Right();
         Line();
         break;
       case 7:
+        PlayTone(700,100);
         Back();
         Line();
         break;
       case 8:
+        PlayTone(700,100);
         Left();
         Line();
         break;
