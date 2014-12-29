@@ -19,19 +19,25 @@ object Application extends FinatraServer {
   val map = TransportMaps(1)
   val sorterInitParams = new SorterInitParams(9, mock = true)
   val transportersInitParams = Seq(
-    new TransporterInitParams(3, 0, mock = false),
-//    new TransporterInitParams(11, 1, mock = false)
-    new TransporterInitParams(13, 1, mock = false)
+    new TransporterInitParams(3, 0, mock = true),
+    new TransporterInitParams(13, 1, mock = true)
+    //    new TransporterInitParams(11, 1, mock = false)
   )
   val dispatcher = system.actorOf(Dispatcher.props(map, sorterInitParams, transportersInitParams), "dispatcher")
-  implicit val timeout = Timeout(5 seconds)
 
-  class ExampleApp extends Controller {
+
+  class SystemServlet extends Controller {
+    implicit val timeout = Timeout(5.seconds)
+
     get("/") { request =>
-      val future = dispatcher ? GetState
-      val state = Await.result(future, 10 seconds).asInstanceOf[SystemState]
+      render.static("index.html").toFuture
+    }
 
-      render.body(state.toString).toFuture
+    get("/state") { request =>
+      val future = dispatcher ? GetState
+      val state = Await.result(future, 10.seconds).asInstanceOf[SystemState]
+
+      render.json(state).toFuture
     }
 
     get("/balls") { request =>
@@ -45,6 +51,6 @@ object Application extends FinatraServer {
     }
   }
 
-  register(new ExampleApp())
+  register(new SystemServlet())
 }
 

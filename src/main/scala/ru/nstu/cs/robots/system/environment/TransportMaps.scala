@@ -1,5 +1,6 @@
 package ru.nstu.cs.robots.system.environment
 
+import com.fasterxml.jackson.annotation.JsonGetter
 import ru.nstu.cs.robots.map._
 import ru.nstu.cs.robots.system.state._
 
@@ -9,6 +10,7 @@ trait TransportMap {
   def sorterPorts: Map[Color, Port]
   def packerPorts: Map[Color, Port]
 
+  @JsonGetter
   def crossroads: Map[Int, Point]
 }
 
