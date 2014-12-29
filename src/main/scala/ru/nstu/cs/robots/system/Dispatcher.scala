@@ -2,11 +2,14 @@ package ru.nstu.cs.robots.system
 
 import akka.actor.{Actor, ActorRef, Props}
 import ru.nstu.cs.robots.map.Direction
-import ru.nstu.cs.robots.system.Dispatcher.{Balls, TransporterReady}
+import ru.nstu.cs.robots.system.Dispatcher.{GetState, Balls, TransporterReady}
 import ru.nstu.cs.robots.system.Transporter.Do
 import ru.nstu.cs.robots.system.environment.TransportMap
 import ru.nstu.cs.robots.system.state.{Color, SystemState}
 import ru.nstu.cs.robots.system.task._
+
+import akka.pattern.ask
+import akka.dispatch.ExecutionContexts.global
 
 
 object Dispatcher {
@@ -15,8 +18,8 @@ object Dispatcher {
     Props(new Dispatcher(map, sorterParams, transportersParams))
 
   case class Balls(balls: Map[Color, Int])
-
   case class TransporterReady(id: Int)
+  case object GetState
 }
 
 class Dispatcher(map: TransportMap, sorterParams: SorterInitParams, transportersParams: Seq[TransporterInitParams]) extends Actor {
@@ -40,6 +43,8 @@ class Dispatcher(map: TransportMap, sorterParams: SorterInitParams, transporters
     case TransporterReady(id) =>
       systemState = systemState.transporterReady(id)
       dispatchNextTasks(systemState.tasks)
+
+    case GetState => sender ! systemState
   }
 
 

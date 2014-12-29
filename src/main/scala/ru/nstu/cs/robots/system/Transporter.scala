@@ -4,12 +4,12 @@ import akka.actor.{Actor, Props}
 import akka.event.Logging
 import ru.nstu.cs.robots.map._
 import ru.nstu.cs.robots.nxt.connection._
-import ru.nstu.cs.robots.nxt.connection.mock.{NxtConnectorTransporterMock, NxtConnectorSorterMock}
+import ru.nstu.cs.robots.nxt.connection.mock.NxtConnectorTransporterMock
 import ru.nstu.cs.robots.system.Dispatcher.TransporterReady
 import ru.nstu.cs.robots.system.Transporter._
 import ru.nstu.cs.robots.system.task._
 
-import scala.concurrent.ExecutionContext.Implicits.global
+
 import scala.concurrent.duration._
 
 object Transporter {
@@ -38,6 +38,7 @@ class Transporter(id: Int, lookDirection: Direction, mock: Boolean) extends Acto
 
   var current: TransporterRealTask = RStay(lookDirection)
 
+  implicit val executor = akka.dispatch.ExecutionContexts.global
 
   /**
    * Transporter always ignore RStay message

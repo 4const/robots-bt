@@ -3,7 +3,6 @@ package ru.nstu.cs.robots.system.state
 import ru.nstu.cs.robots.map.{Point, RoadMap}
 import ru.nstu.cs.robots.system.environment.{Port, SorterParameters, TransportMap}
 import ru.nstu.cs.robots.system.task._
-import ru.nstu.cs.robots.map._
 import SystemState._
 
 object SystemState {
@@ -14,16 +13,16 @@ object SystemState {
 }
 
 class SystemState(
-  private val sorterState: SorterState,
-  private val transportersState: Map[Int, TransporterState],
-  private val transportersTasks: Map[Int, TransporterQueueTask],
-  private val transportMap: TransportMap) {
+  val sorterState: SorterState,
+  val transportersState: Map[Int, TransporterState],
+  val transportersTasks: Map[Int, TransporterQueueTask],
+  val transportMap: TransportMap) {
 
   def this(transporters: Map[Int, Port], transportMap: TransportMap) = {
     this(SorterState(NoColor), initStates(transporters, transportMap), Map(), transportMap)
   }
 
-  val roadMap = new RoadMap(transportMap.crossroads)
+  private val roadMap = new RoadMap(transportMap.crossroads)
 
   def tasks: Map[Int, TransporterQueueTask] = transportersTasks
 
@@ -200,5 +199,11 @@ class SystemState(
           .getOrElse(state.currentTask.endPoint == parkingPort)
       }
       .isEmpty
+  }
+
+  override def toString: String = {
+    sorterState.toString + "\n" +
+    transportersState.toString + "\n" +
+    tasks + "\n"
   }
 }
