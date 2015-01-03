@@ -1,9 +1,12 @@
 package ru.nstu.cs.robots.system.state
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import ru.nstu.cs.robots.map.{Point, RoadMap}
 import ru.nstu.cs.robots.system.environment.{Port, SorterParameters, TransportMap}
 import ru.nstu.cs.robots.system.task._
 import SystemState._
+
+import scala.annotation.meta.getter
 
 object SystemState {
 
@@ -15,6 +18,8 @@ object SystemState {
 class SystemState(
   val sorterState: SorterState,
   val transportersState: Map[Int, TransporterState],
+
+  @(JsonIgnore @getter)
   val transportersTasks: Map[Int, TransporterQueueTask],
   val transportMap: TransportMap) {
 
@@ -205,11 +210,5 @@ class SystemState(
     makeQueue(toPackerPoints)
       .:+(QDrop(packerPort.point, packerPort.direction)) ++
     makeQueue(toParkingPoints)
-  }
-
-  override def toString: String = {
-    sorterState.toString + "\n" +
-    transportersState.mapValues(_.toString + "\n") + "\n" +
-    tasks + "\n"
   }
 }

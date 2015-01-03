@@ -1,9 +1,19 @@
 package ru.nstu.cs.robots.map
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
+import ru.nstu.cs.robots.view.DirectionSerializer
+
+
 case class Point(id: Int, links: Seq[Link])
 
-case class Link(from: Int, to: Int, direction: Direction, open: Boolean = true)
+case class Link(
+  from: Int,
+  to: Int,
 
+  direction: Direction,
+  open: Boolean = true)
+
+@JsonSerialize(using = classOf[DirectionSerializer])
 trait Direction {
   def relativeDirection(to: Direction): Direction
 }
