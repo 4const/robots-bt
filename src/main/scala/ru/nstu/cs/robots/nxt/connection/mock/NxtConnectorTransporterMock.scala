@@ -1,16 +1,20 @@
 package ru.nstu.cs.robots.nxt.connection.mock
 
+import org.slf4j.LoggerFactory
 import ru.nstu.cs.robots.nxt.connection._
 
 import scala.concurrent.duration._
 
-class NxtConnectorTransporterMock extends NxtConnector {
+class NxtConnectorTransporterMock(id: Int) extends NxtConnector {
+
+  val log = LoggerFactory.getLogger(classOf[NxtConnectorTransporterMock])
 
   var currentActionStartTime: Long = 0
   var currentActionDuration: Long = 0
 
 
   override def send(message: NxtMessage): Unit = {
+    log.info("{} <- {}", id, message)
     message match {
       case AskMessage =>
       case _ => refreshState(message)

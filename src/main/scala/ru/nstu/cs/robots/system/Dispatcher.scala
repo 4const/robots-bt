@@ -1,15 +1,14 @@
 package ru.nstu.cs.robots.system
 
 import akka.actor.{Actor, ActorRef, Props}
+import akka.event.Logging
+import org.slf4j.LoggerFactory
 import ru.nstu.cs.robots.map.Direction
 import ru.nstu.cs.robots.system.Dispatcher.{GetState, Balls, TransporterReady}
 import ru.nstu.cs.robots.system.Transporter.Do
 import ru.nstu.cs.robots.system.environment.TransportMap
 import ru.nstu.cs.robots.system.state.{Color, SystemState}
 import ru.nstu.cs.robots.system.task._
-
-import akka.pattern.ask
-import akka.dispatch.ExecutionContexts.global
 
 
 object Dispatcher {
@@ -23,6 +22,8 @@ object Dispatcher {
 }
 
 class Dispatcher(map: TransportMap, sorterParams: SorterInitParams, transportersParams: Seq[TransporterInitParams]) extends Actor {
+
+  val log = LoggerFactory.getLogger(classOf[Dispatcher])
 
   val sorter = context.actorOf(Sorter.props(sorterParams.port, sorterParams.mock))
   val transporters: Map[Int, ActorRef] =
@@ -49,6 +50,8 @@ class Dispatcher(map: TransportMap, sorterParams: SorterInitParams, transporters
 
 
   private def dispatchNextTasks(tasks: Map[Int, TransporterQueueTask]): Unit = {
+    tasks.foreach { case (id, task) => log.info("{} <- {}", id, task) }
+
     tasks
       .mapValues(mapQueueTaskToReal)
       .foreach { case (id, task) => transporters(id) ! Do(task) }

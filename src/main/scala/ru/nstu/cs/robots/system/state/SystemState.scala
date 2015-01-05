@@ -1,7 +1,7 @@
 package ru.nstu.cs.robots.system.state
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import ru.nstu.cs.robots.map.{Point, RoadMap}
+import ru.nstu.cs.robots.map.{Direction, Point, RoadMap}
 import ru.nstu.cs.robots.system.environment.{Port, SorterParameters, TransportMap}
 import ru.nstu.cs.robots.system.task._
 import SystemState._
@@ -55,7 +55,7 @@ class SystemState(
       case _ => sorterState
     }
 
-    val stayTask = QStay(task.endPoint, task.lookAt)
+    val stayTask = mapToStayTask(task)
     val updatedTransporters = transportersState + (id -> TransporterState(stayTask, state.queue))
 
     nextState(updatedSorter, updatedTransporters)
@@ -94,7 +94,7 @@ class SystemState(
         val nextQueue = if (queue.isEmpty) Seq() else queue.tail
         (topTask, nextQueue)
       case _ =>
-        val stay = QStay(task.endPoint, task.lookAt)
+        val stay = mapToStayTask(task)
         (stay, queue)
     }
 
@@ -210,5 +210,15 @@ class SystemState(
     makeQueue(toPackerPoints)
       .:+(QDrop(packerPort.point, packerPort.direction)) ++
     makeQueue(toParkingPoints)
+  }
+
+  private def mapToStayTask(task: TransporterQueueTask): QStay = {
+    task match {
+      case QMove(from, to, lookAt) =>
+        val directionFromToToFrom = transportMap.crossroads(to).links.find(_.to == from).get.direction
+        val endDirection = Direction.revertDirection(directionFromToToFrom)
+        QStay(to, endDirection)
+      case _ => QStay(task.endPoint, task.lookAt)
+    }
   }
 }

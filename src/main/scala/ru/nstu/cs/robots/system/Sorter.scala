@@ -1,6 +1,7 @@
 package ru.nstu.cs.robots.system
 
 import akka.actor.{Props, Actor}
+import org.slf4j.LoggerFactory
 import ru.nstu.cs.robots.nxt.connection.mock.{NxtConnectorSorterMock, NxtConnectorTransporterMock}
 import ru.nstu.cs.robots.nxt.connection.{NxtConnector, AskMessage, NxtConnectorImpl}
 import ru.nstu.cs.robots.system.Sorter._
@@ -32,7 +33,7 @@ object Sorter {
 
 class Sorter(id: Int, mock: Boolean) extends Actor {
 
-  val log = Logging(context.system, this)
+  val log = LoggerFactory.getLogger(classOf[Sorter])
 
   val connector = getConnector(id, mock)
 
