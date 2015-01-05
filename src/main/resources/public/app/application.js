@@ -115,13 +115,14 @@ $(function() {
 				.arc(radius, radius, 0, 0, 0, 
 					startPoint.x + to.x * __lineLenght, 
 					startPoint.y + to.y * __lineLenght),
-			{ stroke: color, strokeWidth: '2px', fill: 'none' }); 
+			{ stroke: color, strokeWidth: '3px', fill: 'none' }); 
 	};
 
 	
 	$('#map').svg({ 
 		onLoad: function drawInitial(svg) { } 
 	});	
+	
     __readSystemState(function(res) {
 		var transportersAction = __extractActions(res.transportersState);
 	
@@ -188,4 +189,5 @@ $(function() {
 		
 		$('#state').text(JSON.stringify(res));
     });
+	setInterval(function() { window.location.reload() }, 1000);
 });

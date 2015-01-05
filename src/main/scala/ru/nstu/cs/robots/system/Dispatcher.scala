@@ -1,7 +1,6 @@
 package ru.nstu.cs.robots.system
 
 import akka.actor.{Actor, ActorRef, Props}
-import akka.event.Logging
 import org.slf4j.LoggerFactory
 import ru.nstu.cs.robots.map.Direction
 import ru.nstu.cs.robots.system.Dispatcher.{GetState, Balls, TransporterReady}
@@ -39,7 +38,6 @@ class Dispatcher(map: TransportMap, sorterParams: SorterInitParams, transporters
   override def receive: Receive = {
     case Balls(balls) =>
       systemState = systemState.addBalls(balls)
-      dispatchNextTasks(systemState.tasks)
 
     case TransporterReady(id) =>
       systemState = systemState.transporterReady(id)

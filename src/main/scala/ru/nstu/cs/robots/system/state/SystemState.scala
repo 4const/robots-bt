@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore
 import ru.nstu.cs.robots.map.{Direction, Point, RoadMap}
 import ru.nstu.cs.robots.system.environment.{Port, SorterParameters, TransportMap}
 import ru.nstu.cs.robots.system.task._
+import ru.nstu.cs.robots.map._
 import SystemState._
 
 import scala.annotation.meta.getter
@@ -34,7 +35,7 @@ class SystemState(
   def addBalls(balls: Map[Color, Int]): SystemState = {
     val updatedSorter = sorterState.copy(queues = sorterState.queues.map { case (c, count) => c -> (count + balls(c)) })
 
-    nextState(updatedSorter, transportersState)
+    new SystemState(updatedSorter, transportersState, transportersTasks, transportMap)
   }
 
   def transporterReady(id: Int): SystemState = {
@@ -63,7 +64,7 @@ class SystemState(
 
   private def nextState(sorterState: SorterState, transportersState: Map[Int, TransporterState]): SystemState = {
     val busy = transportersState
-      .filter { case (_, state) => !state.currentTask.isInstanceOf[QStay] && state.queue.nonEmpty }
+      .filter { case (_, state) => !state.currentTask.isInstanceOf[QStay] }
     val (awaiting, free) = (transportersState -- busy.keys)
       .partition { case (_, state) => state.currentTask.isInstanceOf[QStay] && state.queue.nonEmpty }
 
@@ -77,6 +78,12 @@ class SystemState(
     }
 
     val nextTasks = nextTStates.mapValues(_.currentTask)
+
+    if (nextTasks.size == 2 &&
+        nextTasks(3) == QMove(13, 11 , Right) &&
+        nextTasks(13) == QMove(15, 16, Right)) {
+      var wtf = 0
+    }
 
     new SystemState(nextSState, busy ++ nextTStates, nextTasks, transportMap)
   }
