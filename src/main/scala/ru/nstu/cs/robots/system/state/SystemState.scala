@@ -148,7 +148,7 @@ class SystemState(
     def assignQueue(color: Color, count: Int, transporterId: Int, state: TransporterState): (SorterState, TransporterState) = {
       val currentTask = state.currentTask
 
-      val queue = createTaskQueue(color, currentTask.endPoint, transporterId, freeTransporters ++ refreshedTransporters)
+      val queue = createTaskQueue(color, currentTask.endPoint, transporterId, busyTransporters ++ freeTransporters ++ refreshedTransporters)
       val firstTask = queue.head
       val nextTState = if (canDo(transporterId, firstTask.endPoint, busyTransporters, freeTransporters, refreshedTransporters)) {
         TransporterState(firstTask, queue.tail)
@@ -189,7 +189,7 @@ class SystemState(
         id != transporterId &&
           state.queue.lastOption.map(_.endPoint == parkingPort)
             .getOrElse(state.currentTask.endPoint == parkingPort)
-      }
+        }
         .isEmpty
     }
 
