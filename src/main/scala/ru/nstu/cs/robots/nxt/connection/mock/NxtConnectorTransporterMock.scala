@@ -14,6 +14,8 @@ class NxtConnectorTransporterMock(id: Int) extends NxtConnector {
 
 
   override def send(message: NxtMessage): Unit = {
+    NxtConnector.increase()
+
     log.info("{} <- {}", id, message)
     message match {
       case AskMessage =>

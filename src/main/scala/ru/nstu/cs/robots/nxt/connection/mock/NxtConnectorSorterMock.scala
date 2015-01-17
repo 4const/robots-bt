@@ -13,6 +13,8 @@ class NxtConnectorSorterMock extends NxtConnector {
   var lastBallDropTime: Long = 0
 
   override def send(message: NxtMessage): Unit = {
+    NxtConnector.increase()
+
     message match {
       case _ =>
     }

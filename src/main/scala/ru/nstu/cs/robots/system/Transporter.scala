@@ -51,7 +51,6 @@ class Transporter(id: Int, lookDirection: Direction, mock: Boolean) extends Acto
       current = task
 
     case Ask =>
-//      log.info("Read Transporter {} state", id)
       connector.send(AskMessage)
 
       val isReady = mapAnswer(connector.read(1))

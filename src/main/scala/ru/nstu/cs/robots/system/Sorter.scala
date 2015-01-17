@@ -39,7 +39,6 @@ class Sorter(id: Int, mock: Boolean) extends Actor {
 
   override def receive: Receive = {
     case Ask =>
-//      log.info("Read sorter state")
       connector.send(AskMessage)
       val balls = mapAnswer(connector.read(answerLength))
 

@@ -4,6 +4,7 @@ import akka.actor.ActorSystem
 import akka.pattern.ask
 import akka.util.Timeout
 import com.twitter.finatra._
+import ru.nstu.cs.robots.nxt.connection.NxtConnector
 import ru.nstu.cs.robots.system.Dispatcher.{Balls, GetState}
 import ru.nstu.cs.robots.system.environment.TransportMaps
 import ru.nstu.cs.robots.system.state.{Blue, Green, Red, SystemState}
@@ -39,6 +40,11 @@ object Application extends FinatraServer {
 
       render.json(state).toFuture
     }
+
+    get("/messages") { request =>
+      render.json(NxtConnector.messageCount).toFuture
+    }
+
 
     get("/balls") { request =>
       val red = request.params.getOrElse("red", "0").toInt
